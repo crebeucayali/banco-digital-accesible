@@ -1,6 +1,6 @@
 "use strict";
 
-const BASE_BDA = "https://crebe-ucayali.github.io/banco-digital-accesible/lsp/";
+const BASE_BDA = "https://crebeucayali.github.io/banco-digital-accesible/lsp/";
 const RUTAS = [
   { url: "diccionario_lsp.json", base: BASE_BDA },
   { url: BASE_BDA + "diccionario_lsp.json", base: BASE_BDA }
