@@ -169,6 +169,13 @@ input:hover, select:hover { border-color: var(--azul-700); }
 .tarjeta-contenido { padding: 17px 18px 19px; }
 .categoria-tarjeta { margin: 0 0 7px; color: var(--verde-700); font-size: 0.72rem; font-weight: 850; letter-spacing: 0.085em; text-transform: uppercase; }
 .palabra-tarjeta { margin: 0; color: var(--azul-900); font-family: Georgia, "Times New Roman", serif; font-size: 1.48rem; font-weight: 600; line-height: 1.15; overflow-wrap: anywhere; }
+.descripcion-tarjeta {
+  margin: 12px 0 0;
+  color: var(--texto-suave);
+  font-size: 1rem;
+  line-height: 1.6;
+  white-space: pre-line;
+}
 .fuente-tarjeta { display: none; }
 .acciones-galeria { display: flex; justify-content: center; min-height: 70px; padding: 12px 0 28px; }
 
