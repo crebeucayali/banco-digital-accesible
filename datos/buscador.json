@@ -7,7 +7,7 @@
     "tipo": "Módulo",
     "descripcion": "Entrada principal a recursos de Lengua de Señas Peruana, Sistema Braille y Biblioteca Accesible.",
     "etiquetas": ["banco digital", "accesible", "lsp", "braille", "biblioteca"],
-    "url": "https://crebe-ucayali.github.io/banco-digital-accesible/",
+    "url": "https://crebeucayali.github.io/banco-digital-accesible/",
     "fechaActualizacion": "2026-07-23"
   },
   {
@@ -18,7 +18,7 @@
     "tipo": "Banco visual",
     "descripcion": "Consulta señas organizadas por palabra y categoría para docentes, familias y estudiantes.",
     "etiquetas": ["lsp", "señas", "persona sorda", "comunicacion"],
-    "url": "https://crebe-ucayali.github.io/banco-digital-accesible/lsp/",
+    "url": "https://crebeucayali.github.io/banco-digital-accesible/lsp/",
     "fechaActualizacion": "2026-07-23"
   },
   {
@@ -29,7 +29,7 @@
     "tipo": "Banco educativo",
     "descripcion": "Recursos digitales sobre el sistema Braille, reconocimiento visual y materiales de apoyo.",
     "etiquetas": ["braille", "celda braille", "puntos", "discapacidad visual"],
-    "url": "https://crebe-ucayali.github.io/banco-digital-accesible/braille/",
+    "url": "https://crebeucayali.github.io/banco-digital-accesible/braille/",
     "fechaActualizacion": "2026-07-23"
   },
   {
@@ -40,7 +40,7 @@
     "tipo": "Repositorio de consulta",
     "descripcion": "Libros digitales, bases académicas, repositorios abiertos y accesos de consulta educativa.",
     "etiquetas": ["libros", "biblioteca", "repositorios", "investigacion"],
-    "url": "https://crebe-ucayali.github.io/banco-digital-accesible/biblioteca/",
+    "url": "https://crebeucayali.github.io/banco-digital-accesible/biblioteca/",
     "fechaActualizacion": "2026-07-23"
   }
 ]
