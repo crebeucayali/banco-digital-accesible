@@ -240,3 +240,26 @@ footer { margin-top: 60px; padding: 46px 20px 24px; color: #dfe9ed; background: 
 }
 @media (max-width: 640px) { .pestanas-secuencias { flex-direction: column; } .pestana-secuencia { width: 100%; text-align: center; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+
+/* Jerarquía tipográfica LSP. */
+.presentacion h1{
+  font-size:clamp(2rem,3.5vw,3rem);
+  line-height:1.10;
+}
+.panel-encabezado h2{
+  font-size:clamp(1.5rem,2.3vw,1.875rem);
+  line-height:1.20;
+}
+.tarjeta-creditos h1{
+  font-size:clamp(1.75rem,3vw,2.5rem);
+  line-height:1.12;
+}
+.tarjeta-creditos h2{
+  font-size:1.1875rem;
+  line-height:1.30;
+}
+@media (max-width:760px){
+  .presentacion h1{font-size:clamp(2rem,9vw,2.25rem);}
+  .panel-encabezado h2{font-size:clamp(1.5rem,6vw,1.6875rem);}
+  .tarjeta-creditos h1{font-size:clamp(1.625rem,7vw,2rem);}
+}
