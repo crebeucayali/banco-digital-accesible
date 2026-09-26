@@ -195,7 +195,7 @@ function renderizarCatalogo(){
   const texto = normalizar(filtroCatalogoTexto);
   const tipoSeleccionado = filtroCatalogoTipo;
   let visibles = 0;
-  listaCatalogo.innerHTML = '';
+  listaCatalogo.replaceChildren();
 
   recursos.forEach((recurso) => {
     const tarjeta = crearTarjetaRecurso(recurso);
@@ -223,7 +223,7 @@ async function cargarCatalogo(){
     renderizarCatalogo();
   }catch(error){
     recursos = [];
-    listaCatalogo.innerHTML = '';
+    listaCatalogo.replaceChildren();
     contadorCatalogo.textContent = 'No hay recursos cargados.';
     estadoCatalogo.hidden = false;
     estadoCatalogo.textContent = 'No se pudo cargar el catálogo. Revisa el archivo datos/recursos.json o la conexión del sitio.';
@@ -262,10 +262,28 @@ function crearTarjetaGutendex(libro){
   const titulo = document.createElement('h3');
   titulo.textContent = libro.title || 'Libro sin título';
   const datos = document.createElement('p');
-  datos.innerHTML = `<strong>Autor:</strong> ${autores}<br><strong>Idioma:</strong> ${idiomas}<br><strong>Temas:</strong> ${materias}`;
+  const autorEtiqueta = document.createElement('strong');
+  autorEtiqueta.textContent = 'Autor:';
+  const idiomaEtiqueta = document.createElement('strong');
+  idiomaEtiqueta.textContent = 'Idioma:';
+  const temasEtiqueta = document.createElement('strong');
+  temasEtiqueta.textContent = 'Temas:';
+  datos.append(
+    autorEtiqueta,
+    document.createTextNode(` ${autores}`),
+    document.createElement('br'),
+    idiomaEtiqueta,
+    document.createTextNode(` ${idiomas}`),
+    document.createElement('br'),
+    temasEtiqueta,
+    document.createTextNode(` ${materias}`)
+  );
+
   const formatos = document.createElement('div');
   formatos.className = 'api-formatos';
-  formatos.innerHTML = `<span>Fuente:</span> Project Gutenberg mediante Gutendex`;
+  const fuenteEtiqueta = document.createElement('span');
+  fuenteEtiqueta.textContent = 'Fuente:';
+  formatos.append(fuenteEtiqueta, document.createTextNode(' Project Gutenberg mediante Gutendex'));
   const cita = document.createElement('div');
   cita.className = 'cita-recurso';
   cita.textContent = `Cita sugerida: ${autores}. (s. f.). ${libro.title || 'Título no identificado'}. Project Gutenberg.`;
@@ -318,7 +336,7 @@ function consultasAlternativas(consulta){
 }
 
 function mostrarResultadosGutendex(resultados, mensaje){
-  listaGutendex.innerHTML = '';
+  listaGutendex.replaceChildren();
   resultados.forEach((libro) => listaGutendex.appendChild(crearTarjetaGutendex(libro)));
   contadorGutendex.textContent = resultados.length === 1 ? 'Mostrando 1 libro abierto.' : `Mostrando ${resultados.length} libros abiertos.`;
   estadoGutendex.hidden = !mensaje;
@@ -327,7 +345,7 @@ function mostrarResultadosGutendex(resultados, mensaje){
 
 async function ejecutarBusquedaGutendex(consulta, esInicial = false){
   const termino = consulta && consulta.trim() ? consulta.trim() : 'education';
-  listaGutendex.innerHTML = '';
+  listaGutendex.replaceChildren();
   estadoGutendex.hidden = false;
   estadoGutendex.textContent = 'Consultando libros abiertos con la búsqueda principal...';
   contadorGutendex.textContent = 'Buscando libros abiertos.';
@@ -344,7 +362,7 @@ async function ejecutarBusquedaGutendex(consulta, esInicial = false){
     }
     mostrarResultadosGutendex([], 'No se encontraron libros abiertos con la palabra del buscador principal. Prueba con otro tema en el buscador superior.');
   }catch(error){
-    listaGutendex.innerHTML = '';
+    listaGutendex.replaceChildren();
     contadorGutendex.textContent = 'No se pudo completar la búsqueda.';
     estadoGutendex.hidden = false;
     estadoGutendex.textContent = 'La consulta externa no respondió. Intenta nuevamente o revisa la conexión.';
