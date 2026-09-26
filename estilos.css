@@ -84,3 +84,23 @@ footer{background:var(--azul-oscuro);color:#d9e2ec;padding:44px 18px 22px;}
   .tarjeta-pie{flex-direction:column;align-items:flex-start;}
   .enlace-material{width:100%;text-align:center;}
 }
+
+/* Escala tipográfica contenida para encabezados principales. */
+.portada h1{
+  font-size:clamp(2rem,3.5vw,3rem);
+  line-height:1.10;
+}
+.panel-encabezado h2,
+.panel-presentacion h2{
+  font-size:clamp(1.5rem,2.3vw,1.875rem);
+  line-height:1.20;
+}
+@media (max-width:760px){
+  .portada h1{
+    font-size:clamp(2rem,9vw,2.25rem);
+  }
+  .panel-encabezado h2,
+  .panel-presentacion h2{
+    font-size:clamp(1.5rem,6vw,1.6875rem);
+  }
+}
