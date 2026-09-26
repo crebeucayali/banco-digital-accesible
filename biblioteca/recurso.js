@@ -15,6 +15,41 @@ const estadoTextoFicha = document.getElementById('estado-texto-ficha');
 const condicionTextoFicha = document.getElementById('condicion-texto-ficha');
 const accionesFicha = document.getElementById('acciones-ficha-recurso');
 
+const DOMINIOS_RECURSO_PERMITIDOS = new Set([
+  'crebeucayali.github.io',
+  'drive.google.com',
+  'docs.google.com',
+  'www.gob.pe',
+  'repositorio.minedu.gob.pe',
+  'gutenberg.org'
+]);
+
+function resolverUrlPermitida(valor){
+  const texto = String(valor || '').trim();
+  if(!texto) return null;
+
+  try{
+    const url = new URL(texto, window.location.href);
+
+    if(url.origin === window.location.origin){
+      return url.href;
+    }
+
+    if(url.protocol !== 'https:'){
+      return null;
+    }
+
+    const host = url.hostname.toLowerCase();
+    const permitido = [...DOMINIOS_RECURSO_PERMITIDOS].some((dominio) =>
+      host === dominio || host.endsWith(`.${dominio}`)
+    );
+
+    return permitido ? url.href : null;
+  }catch(error){
+    return null;
+  }
+}
+
 function crearDato(nombre, valor){
   const caja = document.createElement('div');
   caja.className = 'ficha-dato';
@@ -27,14 +62,25 @@ function crearDato(nombre, valor){
 }
 
 function crearBoton(texto, href, clase = 'enlace-material'){
+  const urlSegura = resolverUrlPermitida(href);
+
+  if(!urlSegura){
+    const bloqueado = document.createElement('span');
+    bloqueado.className = `${clase} deshabilitado`;
+    bloqueado.textContent = 'Enlace no permitido';
+    return bloqueado;
+  }
+
   const enlace = document.createElement('a');
   enlace.className = clase;
-  enlace.href = href;
+  enlace.href = urlSegura;
   enlace.textContent = texto;
-  if(/^https?:\/\//.test(href)){
+
+  if(new URL(urlSegura).origin !== window.location.origin){
     enlace.target = '_blank';
     enlace.rel = 'noopener noreferrer';
   }
+
   return enlace;
 }
 
