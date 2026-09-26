@@ -1,3 +1,8 @@
+/* LEGADO DE TRANSICIÓN: este archivo ya no es el punto de entrada activo de BDA.
+   BDA consume el núcleo central desde Accesos Complementarios y conserva
+   únicamente accesibilidad-bda.js como extensión del recorrido guiado.
+   No eliminar hasta cerrar la verificación posterior de la migración. */
+
 "use strict";
 
 (function(){
