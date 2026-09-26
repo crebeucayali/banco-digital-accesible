@@ -338,3 +338,17 @@ footer{
     width:100%;
   }
 }
+
+/* Normalización del título hero BDA/LSP. */
+.titulo-bda-hero{
+  font-size:clamp(2rem,3.5vw,3rem);
+  line-height:1.10;
+}
+.subtitulo-bda-hero{
+  font-size:clamp(1rem,1.5vw,1.125rem);
+  line-height:1.60;
+}
+@media (max-width:760px){
+  .titulo-bda-hero{font-size:clamp(2rem,9vw,2.25rem);}
+  .subtitulo-bda-hero{font-size:1rem;}
+}
