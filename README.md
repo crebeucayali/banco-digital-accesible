@@ -186,3 +186,19 @@ Autor y desarrollador: Psicólogo Gabriel Berrospi
 Tipo de proyecto: Proyecto personal de carácter educativo, inclusivo y digital  
 Finalidad general: Organización y acceso a recursos educativos digitales vinculados a inclusión, accesibilidad y atención a la diversidad  
 Estado del proyecto: En construcción y ampliación progresiva
+
+
+## Arquitectura de accesibilidad
+
+BDA utiliza como núcleo general el sistema transversal de accesibilidad de EVA alojado en:
+
+`crebeucayali/accesos-complementarios/accesibilidad/`
+
+Las funciones comunes de accesibilidad se consumen desde esa ubicación. BDA conserva únicamente una extensión propia para el recorrido guiado:
+
+- `accesibilidad-bda.js`
+- `accesibilidad-bda.css`
+
+Los antiguos `accesibilidad.js` y `accesibilidad.css` de la raíz BDA se mantienen temporalmente como archivos de legado de transición y no deben volver a utilizarse como punto de entrada general.
+
+La arquitectura y las etapas de migración se documentan en `accesos-complementarios/docs/accesibilidad-central-eva.md`.
