@@ -199,6 +199,6 @@ Las funciones comunes de accesibilidad se consumen desde esa ubicación. BDA con
 - `accesibilidad-bda.js`
 - `accesibilidad-bda.css`
 
-Los antiguos `accesibilidad.js` y `accesibilidad.css` de la raíz BDA se mantienen temporalmente como archivos de legado de transición y no deben volver a utilizarse como punto de entrada general.
+Los antiguos `accesibilidad.js` y `accesibilidad.css` de la raíz BDA fueron retirados después de verificar que ya no tenían dependencias activas.
 
 La arquitectura y las etapas de migración se documentan en `accesos-complementarios/docs/accesibilidad-central-eva.md`.
