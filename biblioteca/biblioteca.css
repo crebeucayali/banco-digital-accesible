@@ -111,3 +111,31 @@
 
 /* Separación del título de palabras clave sin estilo inline. */
 .ficha-palabras-titulo{margin-top:22px}
+
+/* Jerarquía tipográfica Biblioteca Accesible. */
+.hero-busqueda h2,
+.panel-encabezado-bd h2,
+.panel-api h2,
+.panel-organizacion h2,
+.panel-ficha h2{
+  font-size:clamp(1.5rem,2.3vw,1.875rem);
+  line-height:1.20;
+}
+.tarjeta-recurso h3,
+.tarjeta-api h3,
+.ficha-lateral h3,
+.paso-biblioteca h3{
+  font-size:clamp(1.125rem,1.5vw,1.25rem);
+  line-height:1.30;
+}
+@media (max-width:760px){
+  .hero-busqueda h2,
+  .panel-encabezado-bd h2,
+  .panel-api h2,
+  .panel-organizacion h2,
+  .panel-ficha h2{font-size:clamp(1.5rem,6vw,1.6875rem);}
+  .tarjeta-recurso h3,
+  .tarjeta-api h3,
+  .ficha-lateral h3,
+  .paso-biblioteca h3{font-size:1.125rem;}
+}
