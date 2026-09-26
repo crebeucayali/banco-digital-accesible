@@ -144,3 +144,21 @@ footer { margin-top: 60px; padding: 46px 20px 24px; color: #dfe9ed; background: 
 @media (max-width: 500px) { .filtros { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); } .filtro { border-radius: 10px; } .lista-tarjetas { grid-template-columns: 1fr; } .boton { width: 100%; } .tarjeta { min-height: 250px; } }
 @media (max-width: 640px) { .contenedor-boton-mas { margin: 28px 0 44px; } .boton-mas { width: 100%; max-width: 260px; padding: 14px 18px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+
+/* Jerarquía interna Braille. */
+main h2:not(.aviso-pedagogico h2){
+  font-size:clamp(1.5rem,2.3vw,1.875rem);
+  line-height:1.20;
+}
+.tarjeta h3,
+.estado-vacio h3,
+.mensaje-error h3{
+  font-size:clamp(1.1875rem,1.6vw,1.375rem);
+  line-height:1.30;
+}
+@media (max-width:760px){
+  main h2:not(.aviso-pedagogico h2){font-size:clamp(1.5rem,6vw,1.6875rem);}
+  .tarjeta h3,
+  .estado-vacio h3,
+  .mensaje-error h3{font-size:1.1875rem;}
+}
