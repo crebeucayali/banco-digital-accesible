@@ -278,10 +278,12 @@ function crearTarjetaGutendex(libro){
   estado.textContent = 'Consulta externa';
   pie.appendChild(estado);
 
-  if(formato && formato.url){
+  const urlFormatoSegura = formato?.url ? resolverUrlGutenberg(formato.url) : null;
+
+  if(urlFormatoSegura){
     const enlace = document.createElement('a');
     enlace.className = 'enlace-material';
-    enlace.href = formato.url;
+    enlace.href = urlFormatoSegura;
     enlace.target = '_blank';
     enlace.rel = 'noopener noreferrer';
     enlace.textContent = formato.etiqueta;
