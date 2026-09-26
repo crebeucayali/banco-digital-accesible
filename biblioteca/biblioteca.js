@@ -29,6 +29,44 @@ function normalizar(texto){
   return String(texto || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 }
 
+const DOMINIOS_CATALOGO_PERMITIDOS = new Set([
+  'crebeucayali.github.io',
+  'drive.google.com',
+  'docs.google.com',
+  'www.gob.pe',
+  'repositorio.minedu.gob.pe'
+]);
+
+function resolverUrlPermitida(valor, dominiosPermitidos = DOMINIOS_CATALOGO_PERMITIDOS){
+  const texto = String(valor || '').trim();
+  if(!texto) return null;
+
+  try{
+    const url = new URL(texto, window.location.href);
+
+    if(url.origin === window.location.origin){
+      return url.href;
+    }
+
+    if(url.protocol !== 'https:'){
+      return null;
+    }
+
+    const host = url.hostname.toLowerCase();
+    const permitido = [...dominiosPermitidos].some((dominio) =>
+      host === dominio || host.endsWith(`.${dominio}`)
+    );
+
+    return permitido ? url.href : null;
+  }catch(error){
+    return null;
+  }
+}
+
+function resolverUrlGutenberg(valor){
+  return resolverUrlPermitida(valor, new Set(['gutenberg.org']));
+}
+
 function cambiarTab(tabId){
   tabs.forEach((tab) => {
     const activo = tab.dataset.tab === tabId;
@@ -125,15 +163,23 @@ function crearTarjetaRecurso(recurso){
   pie.appendChild(ficha);
 
   if(recurso.enlace){
-    const enlace = document.createElement('a');
-    enlace.className = 'enlace-material';
-    enlace.href = recurso.enlace;
-    enlace.textContent = recurso.accion || 'Acceder';
-    if(/^https?:\/\//.test(recurso.enlace)){
-      enlace.target = '_blank';
-      enlace.rel = 'noopener noreferrer';
+    const urlSegura = resolverUrlPermitida(recurso.enlace);
+    if(urlSegura){
+      const enlace = document.createElement('a');
+      enlace.className = 'enlace-material';
+      enlace.href = urlSegura;
+      enlace.textContent = recurso.accion || 'Acceder';
+      if(new URL(urlSegura).origin !== window.location.origin){
+        enlace.target = '_blank';
+        enlace.rel = 'noopener noreferrer';
+      }
+      pie.appendChild(enlace);
+    }else{
+      const pendiente = document.createElement('span');
+      pendiente.className = 'enlace-material deshabilitado';
+      pendiente.textContent = 'Enlace no permitido';
+      pie.appendChild(pendiente);
     }
-    pie.appendChild(enlace);
   }else{
     const pendiente = document.createElement('span');
     pendiente.className = 'enlace-material deshabilitado';
@@ -188,9 +234,16 @@ function obtenerFormatoDisponible(formatos){
   const prioridad = [['text/html', 'Leer en línea'],['application/epub+zip', 'Descargar EPUB'],['application/pdf', 'Ver PDF'],['text/plain', 'Texto simple']];
   for(const [clave, etiqueta] of prioridad){
     const entrada = Object.entries(formatos || {}).find(([tipo]) => tipo.includes(clave));
-    if(entrada){return {url: entrada[1], etiqueta};}
+    if(entrada){
+      const urlSegura = resolverUrlGutenberg(entrada[1]);
+      if(urlSegura) return {url: urlSegura, etiqueta};
+    }
   }
-  const alternativa = Object.values(formatos || {}).find(Boolean);
+
+  const alternativa = Object.values(formatos || {})
+    .map((url) => resolverUrlGutenberg(url))
+    .find(Boolean);
+
   return alternativa ? {url: alternativa, etiqueta: 'Acceder'} : null;
 }
 
