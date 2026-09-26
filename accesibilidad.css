@@ -1,3 +1,7 @@
+/* LEGADO DE TRANSICIÓN: esta hoja ya no es el estilo global activo de accesibilidad BDA.
+   El estilo general proviene de Accesos Complementarios y el recorrido usa
+   accesibilidad-bda.css. No eliminar hasta cerrar la verificación posterior. */
+
 /* Accesibilidad transversal BDA */
 
 :root{
