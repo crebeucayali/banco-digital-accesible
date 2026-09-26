@@ -88,7 +88,11 @@ function asignarOrdenAleatorio() {
 function cargarCategorias() {
   const categorias = [...new Set(bancoSenas.map((item) => item.categoria).filter(Boolean))]
     .sort((a, b) => nombrar(a).localeCompare(nombrar(b), "es"));
-  elementos.categoria.innerHTML = '<option value="">Todas las categorías</option>';
+  elementos.categoria.replaceChildren();
+  const todas = document.createElement("option");
+  todas.value = "";
+  todas.textContent = "Todas las categorías";
+  elementos.categoria.appendChild(todas);
   categorias.forEach((categoria) => {
     const opcion = document.createElement("option");
     opcion.value = categoria;
@@ -212,7 +216,7 @@ function actualizarBotonesSecuencia() {
 
 function renderizar() {
   filtrar();
-  elementos.galeria.innerHTML = "";
+  elementos.galeria.replaceChildren();
   elementos.galeria.classList.toggle("galeria-secuencia", Boolean(secuenciaActiva));
   actualizarBotonesSecuencia();
 
