@@ -1,72 +1,97 @@
 # Estructura del proyecto
 
-Este documento propone una organización básica para el Banco Digital Accesible.
+Este documento registra la estructura **vigente** del Banco Digital Accesible (BDA), módulo del Ecosistema Virtual Accesible (EVA).
 
-La estructura del repositorio busca separar los archivos principales, los módulos internos, los datos, las imágenes, los materiales descargables y los documentos de respaldo, de manera que el proyecto pueda mantenerse ordenado, revisarse con facilidad y ampliarse progresivamente.
+La organización actual separa la portada general, los módulos internos de Lengua de Señas Peruana y Braille, la Biblioteca Accesible, los datos compartidos, las extensiones específicas y la documentación de respaldo.
 
-Estructura sugerida:
+## Estructura general vigente
 
 ```text
 banco-digital-accesible/
-│
 ├── index.html
 ├── estilos.css
+├── index-csp.css
 ├── app.js
-├── README.md
-├── LICENSE
-│
-├── lsp/
+├── accesibilidad-bda.css
+├── accesibilidad-bda.js
+├── creditos.html
+├── creditos.css
+├── logo-crebe.png
+├── logo-crebe.webp
+├── patron-shipibo.webp
+├── datos/
+│   └── buscador.json
+├── biblioteca/
 │   ├── index.html
-│   ├── app.js
-│   ├── datos/
-│   └── imagenes/
-│
+│   ├── biblioteca.css
+│   ├── biblioteca.js
+│   ├── recurso.html
+│   ├── recurso.js
+│   ├── criterios.html
+│   └── datos/
+│       └── recursos.json
 ├── braille/
 │   ├── index.html
 │   ├── app.js
+│   ├── braille.json
 │   ├── teoria.html
-│   └── datos/
-│
-├── datos/
-│   └── recursos.json
-│
-├── imagenes/
-│   └── recursos/
-│
-├── materiales/
-│   └── descargables/
-│
+│   ├── faq.html
+│   ├── accesibilidad.html
+│   ├── practica.js
+│   └── hojas de estilo específicas
+├── lsp/
+│   ├── index.html
+│   ├── app.js
+│   ├── diccionario_lsp.json
+│   ├── faq.html
+│   ├── creditos.html
+│   ├── accesibilidad.html
+│   ├── imagenes/
+│   └── hojas de estilo específicas
 └── docs/
-    ├── alcance-pedagogico.md
-    ├── fuentes-y-creditos.md
-    ├── uso-permitido.md
-    ├── respaldo-institucional.md
-    ├── estructura-del-proyecto.md
-    └── bitacora-de-cambios.md
+    └── documentación pedagógica, autoral, institucional y técnica
 ```
 
-Descripción de archivos y carpetas:
+## Archivos principales
 
-`index.html` contiene la estructura principal de la plataforma web.
+- `index.html`: portada general del Banco Digital Accesible.
+- `estilos.css` e `index-csp.css`: estilos de la portada y reglas externalizadas para mantener la política CSP.
+- `app.js`: comportamiento general de la portada.
+- `accesibilidad-bda.js` y `accesibilidad-bda.css`: extensión específica del recorrido guiado de BDA. No sustituyen el núcleo central de accesibilidad de EVA.
+- `datos/buscador.json`: índice de búsqueda del módulo.
+- `logo-crebe.png`: copia canónica PNG del logo institucional dentro de BDA.
+- `logo-crebe.webp`: variante WebP para usos donde resulte conveniente.
+- `patron-shipibo.webp`: recurso visual compartido.
 
-`estilos.css` define la apariencia visual, el diseño responsivo, la organización de módulos, el contraste, los espaciados y la presentación general de la plataforma.
+## Módulos internos
 
-`app.js` contiene la lógica de interacción, búsqueda, filtros, enlaces, carga de datos y presentación dinámica de recursos, si corresponde.
+### Lengua de Señas Peruana
 
-`lsp/` contiene el módulo interno de Lengua de Señas Peruana, incluyendo sus páginas, datos, imágenes o recursos propios.
+La carpeta `lsp/` reúne el banco de Lengua de Señas Peruana, su diccionario estructurado, páginas de apoyo, créditos, accesibilidad de contenido e imágenes organizadas por categorías.
 
-`braille/` contiene el módulo interno del Sistema Braille, incluyendo sus páginas, datos, teoría o recursos propios.
+### Braille
 
-`datos/` almacena información organizada sobre recursos, categorías, enlaces, descripciones, módulos y materiales asociados.
+La carpeta `braille/` reúne teoría, práctica, datos Braille, preguntas frecuentes y páginas de apoyo específicas.
 
-`imagenes/` contiene recursos visuales propios, institucionalmente autorizados o de licencia compatible. Debe evitarse incorporar imágenes sin fuente clara.
+### Biblioteca Accesible
 
-`materiales/` puede contener fichas descargables, guías, orientaciones, documentos de apoyo o recursos complementarios para docentes y familias.
+La carpeta `biblioteca/` contiene su propia interfaz, datos de recursos, página de detalle y criterios de publicación.
 
-`docs/` reúne documentos de respaldo pedagógico, autoral, institucional y organizativo.
+## Accesibilidad
 
-Para mantener el repositorio ordenado, se recomienda usar nombres de archivo en minúsculas, sin tildes, sin espacios y con guiones medios. Por ejemplo: `banco-lsp.html`, `banco-braille.html`, `materiales-docentes.pdf`, `recursos.json`.
+El sistema general de accesibilidad se consume desde el núcleo central ubicado en Accesos Complementarios.
 
-Cada nuevo módulo o recurso integrado debe registrar su fuente, fecha de incorporación, responsable de revisión y relación con la finalidad educativa del proyecto.
+Los archivos `accesibilidad-bda.js` y `accesibilidad-bda.css` se conservan únicamente como extensión funcional del recorrido guiado de BDA.
 
-Cuando el Banco Digital Accesible enlace otros repositorios o plataformas, se recomienda mantener una descripción breve del recurso, su finalidad, autoría, fuente y condición de uso.
+## Documentación
+
+La carpeta `docs/` contiene documentos con funciones diferenciadas: autoría, sustento del proyecto, alcance pedagógico, fuentes generales, fuentes específicas de LSP, uso permitido, uso institucional, criterios de integración, respaldo institucional, estructura y bitácora.
+
+Los documentos con temas relacionados no deben fusionarse automáticamente si cumplen alcances distintos.
+
+## Criterio de mantenimiento
+
+- Evitar copias de logos o recursos compartidos dentro de subcarpetas cuando puedan utilizar la fuente canónica.
+- No crear implementaciones generales paralelas de accesibilidad.
+- Mantener datos de cada módulo junto a su funcionalidad correspondiente.
+- Actualizar este documento cuando se creen, retiren o reorganicen componentes estructurales.
