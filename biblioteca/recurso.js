@@ -92,7 +92,7 @@ function mostrarFicha(recurso){
   tituloFicha.textContent = recurso.titulo || 'Recurso sin título';
   resumenFicha.textContent = recurso.resumen || recurso.descripcion || 'Este recurso todavía no cuenta con resumen ampliado.';
 
-  datosFicha.innerHTML = '';
+  datosFicha.replaceChildren();
   datosFicha.append(
     crearDato('Autor / entidad', recurso.autor),
     crearDato('Año', recurso.anio),
@@ -114,7 +114,7 @@ function mostrarFicha(recurso){
 
   citaFicha.textContent = recurso.cita ? `Cita sugerida: ${recurso.cita}` : 'Cita sugerida: pendiente de registro.';
 
-  palabrasFicha.innerHTML = '';
+  palabrasFicha.replaceChildren();
   const palabras = Array.isArray(recurso.palabrasClave) ? recurso.palabrasClave : [];
   if(palabras.length){
     palabras.forEach((palabra) => {
@@ -130,10 +130,21 @@ function mostrarFicha(recurso){
     palabrasFicha.appendChild(item);
   }
 
-  estadoTextoFicha.innerHTML = `<strong>Estado:</strong> ${recurso.estadoEtiqueta || 'Pendiente'}`;
-  condicionTextoFicha.innerHTML = `<strong>Condición:</strong> ${recurso.condicion || 'Por definir'}`;
+  const estadoEtiqueta = document.createElement('strong');
+  estadoEtiqueta.textContent = 'Estado:';
+  estadoTextoFicha.replaceChildren(
+    estadoEtiqueta,
+    document.createTextNode(` ${recurso.estadoEtiqueta || 'Pendiente'}`)
+  );
 
-  accionesFicha.innerHTML = '';
+  const condicionEtiqueta = document.createElement('strong');
+  condicionEtiqueta.textContent = 'Condición:';
+  condicionTextoFicha.replaceChildren(
+    condicionEtiqueta,
+    document.createTextNode(` ${recurso.condicion || 'Por definir'}`)
+  );
+
+  accionesFicha.replaceChildren();
   accionesFicha.appendChild(crearBoton('Volver al catálogo', 'index.html#resultados-biblioteca', 'boton-secundario'));
 
   if(recurso.enlace){
