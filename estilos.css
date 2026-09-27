@@ -62,11 +62,11 @@ main{max-width:1120px;margin:-78px auto 0;padding:0 18px 44px;position:relative;
 
 footer{background:var(--azul-oscuro);color:#d9e2ec;padding:44px 18px 22px;}
 .footer-contenido{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:28px;}
-.footer-bloque h2{margin:0 0 12px;color:#ffffff;font-size:1rem;}
-.footer-bloque p{margin:0;color:#d9e2ec;line-height:1.7;font-size:.95rem;}
-.footer-bloque a{color:#d9e2ec;}
+.footer-bloque h2{margin:0 0 12px;color:#ffffff;font-size:.9375rem;}
+.footer-bloque p{margin:0;color:#d9e2ec;line-height:1.7;font-size:.875rem;}
+.footer-bloque a{color:#d9e2ec;font-size:.875rem;}
 .footer-final{max-width:1120px;margin:30px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.16);}
-.footer-final p{margin:0;color:#bcccdc;font-size:.9rem;line-height:1.6;}
+.footer-final p{margin:0;color:#bcccdc;font-size:.8125rem;line-height:1.6;}
 
 @media (max-width:900px){.grid-materiales,.panel-presentacion,.footer-contenido{grid-template-columns:1fr;}}
 @media (max-width:700px){
@@ -133,3 +133,7 @@ footer{background:var(--azul-oscuro);color:#d9e2ec;padding:44px 18px 22px;}
     padding-bottom:6px;
   }
 }
+
+
+/* Escala tipográfica del footer institucional BDA */
+.footer-legal-eva a{font-size:.8125rem;}
