@@ -123,3 +123,13 @@ footer{background:var(--azul-oscuro);color:#d9e2ec;padding:44px 18px 22px;}
   .panel-presentacion h2{font-size:clamp(1.5rem,6vw,1.6875rem);}
   .tarjeta-material h3{font-size:1.1875rem;}
 }
+
+/* Ajuste compartido de altura de la franja superior EVA */
+@media (min-width:701px){
+  .cabecera > .navegacion,
+  .cabecera .navegacion{
+    min-height:74px;
+    padding-top:6px;
+    padding-bottom:6px;
+  }
+}
