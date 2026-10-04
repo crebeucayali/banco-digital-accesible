@@ -23,7 +23,7 @@ a{color:inherit;}
 .navegacion{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
 .marca{display:inline-flex;align-items:center;gap:14px;color:var(--blanco);text-decoration:none;font-weight:900;font-size:1.05rem;}
 .marca-icono{width:54px;height:54px;border-radius:18px;display:inline-flex;align-items:center;justify-content:center;background:var(--blanco);color:var(--azul);font-weight:900;box-shadow:0 10px 24px rgba(0,0,0,.14);}
-.enlace-cabecera{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 22px;border:1px solid rgba(255,255,255,.45);border-radius:999px;color:var(--blanco);text-decoration:none;font-weight:800;background:rgba(255,255,255,.08);}
+.enlace-cabecera{font-size:0.9375rem;display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 22px;border:1px solid rgba(255,255,255,.45);border-radius:999px;color:var(--blanco);text-decoration:none;font-weight:600;background:rgba(255,255,255,.08);}
 .enlace-cabecera:hover{background:rgba(255,255,255,.16);}
 .portada{max-width:1120px;margin:70px auto 0;}
 .bloque-institucional{display:flex;align-items:center;gap:22px;margin-bottom:34px;}
@@ -69,7 +69,7 @@ footer{background:var(--azul-oscuro);color:#d9e2ec;padding:44px 18px 22px;}
 .footer-final p{margin:0;color:#bcccdc;font-size:.8125rem;line-height:1.6;}
 
 @media (max-width:900px){.grid-materiales,.panel-presentacion,.footer-contenido{grid-template-columns:1fr;}}
-@media (max-width:700px){
+@media (max-width:700px){.enlace-cabecera{font-size:0.875rem;}
   .cabecera{padding:26px 18px 116px;}
   .navegacion{align-items:flex-start;flex-direction:column;}
   .portada{margin-top:54px;}

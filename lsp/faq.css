@@ -4,7 +4,7 @@
 .cabecera .navegacion,.cabecera .portada{position:relative;z-index:1;}
 .navegacion{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
 .enlaces-cabecera{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:12px;}
-.enlace-cabecera{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 22px;border:1px solid rgba(255,255,255,.45);border-radius:999px;color:#ffffff;text-decoration:none;font-weight:800;background:rgba(255,255,255,.08);font-size:1rem;}
+.enlace-cabecera{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 22px;border:1px solid rgba(255,255,255,.45);border-radius:999px;color:#ffffff;text-decoration:none;font-weight:600;background:rgba(255,255,255,.08);font-size:0.9375rem;}
 .enlace-cabecera:hover{background:rgba(255,255,255,.16);color:#ffffff;}
 .marca-institucional{display:inline-flex;align-items:center;gap:14px;max-width:min(560px,100%);color:#ffffff;text-decoration:none;font-weight:900;font-size:1.05rem;}
 .marca-logo-superior{display:block;width:58px;height:58px;object-fit:contain;flex-shrink:0;padding:4px;background:rgba(255,255,255,.96);border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.14);}
@@ -25,4 +25,4 @@ main{margin-top:-78px;}
 .boton-secundario-info{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 18px;border-radius:999px;border:1px solid #0f766e;color:#0f766e;text-decoration:none;font-weight:800;background:#ffffff;}
 .boton-secundario-info:hover{background:#e6f4f1;color:#0b4f4a;}
 .footer-contenido{grid-template-columns:1.2fr 1fr 1.25fr;gap:32px;}
-@media (max-width:700px){.cabecera{padding:26px 18px 116px;}.patron-portada{background-size:260px auto;}.navegacion{align-items:flex-start;flex-direction:column;}.portada{margin-top:54px;}.marca-institucional{align-items:flex-start;}.marca-logo-superior{width:52px;height:52px;border-radius:16px;}.marca-texto-superior{padding-left:12px;}.marca-nombre-institucional{font-size:.94rem;}.marca-detalle-institucional{font-size:.82rem;}.enlaces-cabecera{justify-content:flex-start;}.acciones-informativas{flex-direction:column;}.boton-secundario-info{width:100%;}.footer-contenido{grid-template-columns:1fr;}}
+@media (max-width:700px){.enlace-cabecera{font-size:0.875rem;}.cabecera{padding:26px 18px 116px;}.patron-portada{background-size:260px auto;}.navegacion{align-items:flex-start;flex-direction:column;}.portada{margin-top:54px;}.marca-institucional{align-items:flex-start;}.marca-logo-superior{width:52px;height:52px;border-radius:16px;}.marca-texto-superior{padding-left:12px;}.marca-nombre-institucional{font-size:.94rem;}.marca-detalle-institucional{font-size:.82rem;}.enlaces-cabecera{justify-content:flex-start;}.acciones-informativas{flex-direction:column;}.boton-secundario-info{width:100%;}.footer-contenido{grid-template-columns:1fr;}}

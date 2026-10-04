@@ -54,7 +54,7 @@ body .patron-portada{position:absolute !important;inset:0 !important;z-index:0 !
 body .cabecera .navegacion,body .cabecera .portada{position:relative !important;z-index:1 !important;}
 body .navegacion{max-width:1120px !important;margin:0 auto !important;display:flex !important;align-items:center !important;justify-content:space-between !important;gap:20px !important;flex-wrap:wrap !important;}
 body .enlaces-cabecera{display:flex !important;align-items:center !important;justify-content:flex-end !important;flex-wrap:wrap !important;gap:12px !important;}
-body .enlace-cabecera{display:inline-flex !important;align-items:center !important;justify-content:center !important;min-height:46px !important;padding:10px 22px !important;border:1px solid rgba(255,255,255,.45) !important;border-radius:999px !important;color:#ffffff !important;text-decoration:none !important;font-weight:800 !important;background:rgba(255,255,255,.08) !important;font-size:1rem !important;}
+body .enlace-cabecera{display:inline-flex !important;align-items:center !important;justify-content:center !important;min-height:46px !important;padding:10px 22px !important;border:1px solid rgba(255,255,255,.45) !important;border-radius:999px !important;color:#ffffff !important;text-decoration:none !important;font-weight:600 !important;background:rgba(255,255,255,.08) !important;font-size:0.9375rem !important;}
 body .enlace-cabecera:hover{background:rgba(255,255,255,.16) !important;color:#ffffff !important;}
 body .marca-institucional{display:inline-flex !important;align-items:center !important;gap:14px !important;max-width:min(560px,100%) !important;color:#ffffff !important;text-decoration:none !important;font-weight:900 !important;font-size:1.05rem !important;}
 body .marca-logo-superior{display:block !important;width:58px !important;height:58px !important;object-fit:contain !important;flex-shrink:0 !important;padding:4px !important;background:rgba(255,255,255,.96) !important;border-radius:18px !important;box-shadow:0 10px 24px rgba(0,0,0,.14) !important;}
@@ -74,6 +74,6 @@ body .portada h1{
   font-size:clamp(2rem,3.5vw,3rem)!important;
   line-height:1.10!important;
 }
-@media (max-width:700px){
+@media (max-width:700px){body .enlace-cabecera{font-size:0.875rem!important;}
   body .portada h1{font-size:clamp(2rem,9vw,2.25rem)!important;}
 }
