@@ -14,7 +14,7 @@
 .marca-detalle-institucional{display:block;margin-top:4px;color:rgba(255,255,255,.94);font-size:.88rem;font-weight:750;line-height:1.25;}
 .portada{position:relative;z-index:1;max-width:1120px;margin:70px auto 0;}
 .etiqueta{margin:0 0 14px;color:#c9f7ee;font-size:.86rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;}
-.portada h1{max-width:900px;margin:0 0 22px;color:#ffffff;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.5rem,5.8vw,4.15rem);line-height:1.04;letter-spacing:-.04em;}
+.portada h1,.portada .titulo-portada{max-width:900px;margin:0 0 22px;color:#ffffff;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.5rem,5.8vw,4.15rem);line-height:1.04;letter-spacing:-.04em;}
 .subtitulo{max-width:880px;margin:0;color:rgba(255,255,255,.96);font-size:1.22rem;line-height:1.65;}
 .contenido-creditos{max-width:1120px;margin:-78px auto 0;padding:0 18px 44px;position:relative;z-index:2;}
 .tarjeta-creditos{background:#ffffff;border:1px solid var(--borde);border-radius:var(--radio);box-shadow:var(--sombra);padding:34px 46px 40px;}
