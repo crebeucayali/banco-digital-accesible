@@ -1948,7 +1948,7 @@
     "categoria": "animales",
     "palabra": "buho",
     "descripcion": "Configurar con ambas manos la \"D\" y llevarlas a los ojos con movimientos suaves",
-    "archivo_imagen": "imagenes/animales/buho",
+    "archivo_imagen": "imagenes/animales/buho.png",
     "fuente": "Ministerio de Educación del Perú - Guía de Lengua de Señas Peruana"
   },
   {
@@ -3508,7 +3508,7 @@
     "categoria": "naturaleza",
     "palabra": "fresco",
     "descripcion": "Con ambas manos extendidas frente a la cara realizar movimientos con los dedos de afuera hacia adentro.",
-    "archivo_imagen": "imagenes/naturaleza/fresco.png",
+    "archivo_imagen": "imagenes/naturaleza/fresco_1.png",
     "fuente": "Ministerio de Educación del Perú - Guía de Lengua de Señas Peruana"
   },
   {
