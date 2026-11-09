@@ -136,7 +136,31 @@ footer{background:var(--azul-oscuro);color:#d9e2ec;padding:44px 18px 22px;}
 
 
 /* Escala tipográfica del footer institucional BDA */
-.footer-legal-eva a{font-size:.8125rem;}
+/* Enlaces legales alineados con el contenedor institucional del footer. */
+.footer-legal-eva{
+  max-width:1120px;
+  margin:24px auto 0;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:flex-start;
+  gap:10px 20px;
+}
+.footer-legal-eva a{
+  display:inline-block;
+  font-size:.8125rem;
+  line-height:1.6;
+  color:#d9e2ec;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  overflow-wrap:anywhere;
+}
+.footer-legal-eva a:hover{color:#ffffff;}
+.footer-legal-eva a:focus-visible{outline:3px solid #ffd600;outline-offset:4px;}
+@media(max-width:600px){
+  .footer-legal-eva{gap:10px 16px;}
+}
+
 
 
 /* EVA 2.0: superficies y distintivos de alto contraste, sin alterar las imagenes. */
