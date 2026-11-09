@@ -137,3 +137,10 @@ footer{background:var(--azul-oscuro);color:#d9e2ec;padding:44px 18px 22px;}
 
 /* Escala tipográfica del footer institucional BDA */
 .footer-legal-eva a{font-size:.8125rem;}
+
+
+/* EVA 2.0: superficies y distintivos de alto contraste, sin alterar las imagenes. */
+html.eva-alto-contraste :is(.panel-busqueda,.panel-presentacion,.aviso-pedagogico,.tarjeta-material,.tarjeta-material.disponible,.material-icono,.aviso-icono,.estado-material,.marca-icono){
+ background:#000!important;background-image:none!important;color:#fff!important;border-color:#fff!important;
+}
+html.eva-alto-contraste .enlace-material{background:#000!important;color:#ffff00!important;border:1px solid #fff!important;}
