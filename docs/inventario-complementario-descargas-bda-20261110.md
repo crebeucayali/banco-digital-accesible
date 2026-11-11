@@ -1,3 +1,5 @@
+> **Decisión posterior (11 de noviembre de 2026):** la propuesta de instrumentar impresiones Braille de BDA fue descartada. Su implementación temporal se revirtió y el seguimiento vigente de descargas BDA abarca solo PNG de LSP. La futura integración RA+BDA se analiza en `docs/verificacion-previa-reestructuracion-ra-bda-20261111.md`; la práctica Braille de BDA aún no se elimina y las modalidades de MEA se conservan. Las prioridades originales siguientes se muestran únicamente como antecedente histórico.
+
 # Etapa 1. Inventario complementario de descargas e interacciones BDA
 
 **Fecha de revisión:** 10 de noviembre de 2026 (Perú).  
