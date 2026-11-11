@@ -1,0 +1,65 @@
+/* EVA 2.0: armonización de las tarjetas de la portada de BDA.
+   Alcance exclusivo a la cuadrícula principal, sin cambiar medidas ni funciones. */
+body main#contenido-principal .panel-busqueda .grid-materiales > article.tarjeta-material {
+  background:#f5f7f8;
+  border:1px solid #d9e2e6;
+  border-top:4px solid #0e7490;
+}
+body main#contenido-principal .panel-busqueda .grid-materiales > article.tarjeta-material.en-construccion {
+  background:#f5f7f8;
+  border-top-color:#9aa8b1;
+}
+body main#contenido-principal .panel-busqueda .grid-materiales > article.tarjeta-material .material-icono {
+  background:#dceff4;
+  color:#0b5b73;
+}
+body main#contenido-principal .panel-busqueda .grid-materiales > article.tarjeta-material .tarjeta-pie > a.enlace-material {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  border:1px solid #0e7490;
+  border-radius:2px;
+  background:transparent;
+  color:#0e7490;
+  text-decoration:none;
+  transition:background-color .2s ease,color .2s ease;
+}
+body main#contenido-principal .panel-busqueda .grid-materiales > article.tarjeta-material .tarjeta-pie > a.enlace-material::after {
+  content:"›";
+  display:inline-flex;
+  width:16px;
+  height:16px;
+  align-items:center;
+  justify-content:center;
+  flex:none;
+  border:1px solid currentColor;
+  border-radius:50%;
+  line-height:1;
+  font-size:15px;
+  font-weight:700;
+}
+body main#contenido-principal .panel-busqueda .grid-materiales > article.tarjeta-material .tarjeta-pie > a.enlace-material:is(:hover,:focus-visible) {
+  background:#0e7490;
+  border-color:#0e7490;
+  color:#fff;
+}
+body main#contenido-principal .panel-busqueda .grid-materiales > article.tarjeta-material .tarjeta-pie > a.enlace-material:focus-visible {
+  outline:3px solid #17324d;
+  outline-offset:3px;
+}
+@media (prefers-reduced-motion:reduce) {
+  body main#contenido-principal .panel-busqueda .grid-materiales > article.tarjeta-material a.enlace-material {transition:none;}
+}
+html.eva-alto-contraste body main#contenido-principal .panel-busqueda .grid-materiales > article.tarjeta-material,
+body.alto-contraste main#contenido-principal .panel-busqueda .grid-materiales > article.tarjeta-material {
+  background:#000!important;
+  color:#fff!important;
+  border-color:#fff!important;
+}
+html.eva-alto-contraste body main#contenido-principal .panel-busqueda .grid-materiales > article.tarjeta-material .tarjeta-pie > a.enlace-material,
+body.alto-contraste main#contenido-principal .panel-busqueda .grid-materiales > article.tarjeta-material .tarjeta-pie > a.enlace-material {
+  background:#000!important;
+  border-color:#fff!important;
+  color:#ffff00!important;
+}
