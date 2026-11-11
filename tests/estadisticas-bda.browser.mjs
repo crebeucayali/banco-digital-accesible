@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 const tracker=await readFile(new URL("../estadisticas/recursos-bda.js",import.meta.url),"utf8");
 const viewer=await readFile(new URL("../lsp/visor-senas.js",import.meta.url),"utf8");
 const html=await readFile(new URL("../lsp/index.html",import.meta.url),"utf8");
-assert.ok(html.includes('estadisticas/recursos-bda.js?v=1'),"No se carga el rastreador");
+assert.ok(html.includes('estadisticas/recursos-bda.js?v=2'),"No se carga el rastreador");
 assert.ok(html.indexOf('recursos-bda.js?v=1')<html.indexOf('visor-senas.js?v=2'),"Orden incorrecto");
 assert.ok(!tracker.includes("palabra"),"El cliente no debe transmitir palabras");
 const url="https://crebeucayali.github.io/banco-digital-accesible/lsp/";
