@@ -1,0 +1,26 @@
+name: Validar seguimiento de descargas BDA
+on:
+  pull_request:
+    paths:
+      - 'lsp/index.html'
+      - 'lsp/visor-senas.js'
+      - 'estadisticas/recursos-bda.js'
+      - 'tests/estadisticas-bda.browser.mjs'
+      - '.github/workflows/validar-estadisticas-bda.yml'
+  workflow_dispatch:
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save --no-package-lock playwright@1.56.1
+      - run: npx playwright install --with-deps chromium
+      - run: node --check lsp/visor-senas.js
+      - run: node --check estadisticas/recursos-bda.js
+      - run: node tests/estadisticas-bda.browser.mjs

@@ -17,6 +17,14 @@
   const fuente = modal.querySelector(".visor-senas-fuente");
   const descargar = modal.querySelector(".visor-senas-descarga");
   let origen = null;
+  // Registrar únicamente el clic del enlace de descarga, no la vista ampliada.
+  descargar.addEventListener("click", () => {
+    if (modal.hidden || !descargar.hasAttribute("download")) return;
+    const destino = new URL(descargar.href, location.href);
+    if (destino.protocol !== "https:" || destino.origin !== location.origin ||
+        !destino.pathname.toLowerCase().endsWith(".png")) return;
+    window.EVARecursosBDA?.registrarDescargaLsp();
+  });
   function cerrarVisor() {
     if (modal.hidden) return;
     modal.hidden = true;
