@@ -254,12 +254,7 @@ if (cerrarConstancia) {
 }
 
 if (imprimirConstancia) {
-  imprimirConstancia.addEventListener("click", () => {
-    // Solo constancias habilitadas y abiertas; no se transmite nombre, código ni nota.
-    if (!constanciaHabilitada || !dialogoConstancia?.open) return;
-    window.EVARecursosBDA?.registrarImpresionBraille();
-    window.print();
-  });
+  imprimirConstancia.addEventListener("click", () => window.print());
 }
 
 if (dialogoConstancia) {
