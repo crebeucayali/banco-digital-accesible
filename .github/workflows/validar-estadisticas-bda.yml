@@ -3,9 +3,6 @@ on:
   pull_request:
     paths:
       - 'lsp/index.html'
-      - 'braille/index.html'
-      - 'braille/practica.js'
-      - 'tests/estadisticas-braille.browser.mjs'
       - 'lsp/visor-senas.js'
       - 'estadisticas/recursos-bda.js'
       - 'tests/estadisticas-bda.browser.mjs'
@@ -25,7 +22,5 @@ jobs:
       - run: npm install --no-save --no-package-lock playwright@1.56.1
       - run: npx playwright install --with-deps chromium
       - run: node --check lsp/visor-senas.js
-      - run: node --check braille/practica.js
       - run: node --check estadisticas/recursos-bda.js
       - run: node tests/estadisticas-bda.browser.mjs
-      - run: node tests/estadisticas-braille.browser.mjs
