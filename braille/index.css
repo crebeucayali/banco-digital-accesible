@@ -77,3 +77,49 @@ body .portada h1{
 @media (max-width:700px){body .enlace-cabecera{font-size:0.875rem!important;}
   body .portada h1{font-size:clamp(2rem,9vw,2.25rem)!important;}
 }
+
+/* Accesos de interés: contenido y botones integrados dentro del mismo recuadro. */
+#accesos-interes-braille .panel-presentacion {
+  grid-template-columns: minmax(0, .75fr) minmax(0, 1fr);
+  gap: clamp(18px, 3vw, 40px);
+  align-items: center;
+}
+#accesos-interes-braille .accesos-interes-contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
+}
+#accesos-interes-braille .accesos-interes-contenido > p {
+  margin: 0;
+  color: var(--texto-suave);
+}
+#accesos-interes-braille .accesos-interes-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+#accesos-interes-braille .accesos-interes-botones .boton-braille-teoria {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: normal;
+  text-align: center;
+  min-height: 42px;
+}
+@media (max-width: 700px) {
+  #accesos-interes-braille .panel-presentacion {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  #accesos-interes-braille .accesos-interes-contenido {
+    align-items: stretch;
+  }
+  #accesos-interes-braille .accesos-interes-botones {
+    flex-direction: column;
+  }
+  #accesos-interes-braille .accesos-interes-botones .boton-braille-teoria {
+    width: 100%;
+  }
+}
