@@ -5,7 +5,6 @@ export const NIVELES = Object.freeze({ inicial: "Inicial", primaria: "Primaria",
 export const TAMANO_PAGINA = 9;
 const CAMPOS = "id,categoria,nivel_educativo,orden,titulo,descripcion,imagen_url,imagen_alt,estado_publicacion,visible,updated_at";
 const ORIGEN_RA = "https://crebeucayali.github.io/banco-digital-accesible/repositorio-accesible/";
-const ORIGEN_IMAGEN_RA = "https://crebeucayali.github.io/repositorio-accesible/";
 const STORAGE = "https://dteimbhwtzghhsijeeld.supabase.co";
 
 export function categoriaValida(categoria) {
@@ -27,14 +26,17 @@ export function urlImagenSegura(valor) {
   if (!ruta) return "";
   // Solo se admiten rutas de imágenes del RA, nunca rutas arbitrarias.
   if (/^assets\/[a-z0-9._/-]+\.(?:webp|png|jpg|jpeg)$/i.test(ruta) && !ruta.includes("..")) {
-    return new URL(ruta, ORIGEN_IMAGEN_RA).href;
+    return new URL(ruta, ORIGEN_RA).href;
   }
   try {
     const url = new URL(ruta);
     if (url.protocol !== "https:" || url.search || url.hash) return "";
     if (url.origin === "https://crebeucayali.github.io" &&
-        /^\/repositorio-accesible\/assets\/[a-z0-9._/-]+\.(?:webp|png|jpg|jpeg)$/i.test(url.pathname) &&
-        !url.pathname.includes("..")) return url.href;
+        /^\/(?:repositorio-accesible|banco-digital-accesible\/repositorio-accesible)\/assets\/[a-z0-9._/-]+\.(?:webp|png|jpg|jpeg)$/i.test(url.pathname) &&
+        !url.pathname.includes("..")) {
+      // Canonizar las URL históricas de RA hacia los archivos físicos de BDA.
+      return new URL(url.pathname.replace(/^\/repositorio-accesible\//, "/banco-digital-accesible/repositorio-accesible/"), url.origin).href;
+    }
     if (url.origin === STORAGE &&
         /^\/storage\/v1\/object\/public\/eva-publico\/repositorio\/[a-z0-9._/-]+\.(?:webp|png|jpg|jpeg)$/i.test(url.pathname) &&
         !url.pathname.includes("..")) return url.href;
