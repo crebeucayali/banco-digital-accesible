@@ -202,3 +202,13 @@ Las funciones comunes de accesibilidad se consumen desde esa ubicación. BDA con
 Los antiguos `accesibilidad.js` y `accesibilidad.css` de la raíz BDA fueron retirados después de verificar que ya no tenían dependencias activas.
 
 La arquitectura y las etapas de migración se documentan en `accesos-complementarios/docs/accesibilidad-central-eva.md`.
+
+## Repositorio Accesible integrado
+
+El antiguo módulo Repositorio Accesible (RA) se integra en BDA como sección de consulta de recursos físicos del CREBE Ucayali. Contiene las categorías Materiales disponibles, Equipos tecnológicos y Materiales elaborados.
+
+Acceso definitivo: https://crebeucayali.github.io/banco-digital-accesible/repositorio-accesible/
+
+La gestión de los recursos continúa en el panel administrativo EVA, a través de la sección "BDA · Repositorio", con la tabla `public.repositorio_recursos` y las autorizaciones existentes. No se duplicaron las filas de la base de datos ni se modificó el sistema de roles.
+
+Las antiguas direcciones de RA permanecen activas únicamente para redirigir al nuevo destino. El repositorio de origen no debe archivarse mientras GitHub Pages siga encargado de estas redirecciones. Para el historial técnico, consultar `docs/migracion-ra-bda-publicacion-20261111.md`.
