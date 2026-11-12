@@ -1,0 +1,65 @@
+[
+  {
+    "id": "ra-inicio",
+    "titulo": "Repositorio Accesible",
+    "modulo": "BDA",
+    "categoria": "Repositorio",
+    "tipo": "Sección",
+    "descripcion": "Organiza materiales, equipos tecnológicos y producciones accesibles del CREBE Ucayali.",
+    "etiquetas": [
+      "repositorio",
+      "materiales",
+      "equipos",
+      "producciones"
+    ],
+    "url": "https://crebeucayali.github.io/banco-digital-accesible/repositorio-accesible/",
+    "fechaActualizacion": "2026-07-23"
+  },
+  {
+    "id": "ra-materiales-disponibles",
+    "titulo": "Materiales disponibles",
+    "modulo": "BDA",
+    "categoria": "Materiales físicos",
+    "tipo": "Sección de catálogo",
+    "descripcion": "Textos en Braille, láminas adaptadas, tarjetas de comunicación y material manipulativo.",
+    "etiquetas": [
+      "textos braille",
+      "laminas",
+      "tarjetas de comunicacion",
+      "material manipulativo"
+    ],
+    "url": "https://crebeucayali.github.io/banco-digital-accesible/repositorio-accesible/materiales-disponibles/",
+    "fechaActualizacion": "2026-07-23"
+  },
+  {
+    "id": "ra-equipos",
+    "titulo": "Equipos tecnológicos",
+    "modulo": "BDA",
+    "categoria": "Tecnología de apoyo",
+    "tipo": "Sección de catálogo",
+    "descripcion": "Máquina Perkins, dispositivos de acceso y equipos para elaboración de materiales accesibles.",
+    "etiquetas": [
+      "perkins",
+      "dispositivos",
+      "tecnologia de apoyo"
+    ],
+    "url": "https://crebeucayali.github.io/banco-digital-accesible/repositorio-accesible/equipos-tecnologicos/",
+    "fechaActualizacion": "2026-07-23"
+  },
+  {
+    "id": "ra-producciones",
+    "titulo": "Materiales elaborados",
+    "modulo": "BDA",
+    "categoria": "Producción accesible",
+    "tipo": "Sección de catálogo",
+    "descripcion": "Silabarios, rutinas visuales, fichas adaptadas y materiales de sensibilización.",
+    "etiquetas": [
+      "silabario",
+      "rutinas visuales",
+      "fichas adaptadas",
+      "sensibilizacion"
+    ],
+    "url": "https://crebeucayali.github.io/banco-digital-accesible/repositorio-accesible/materiales-elaborados/",
+    "fechaActualizacion": "2026-07-23"
+  }
+]

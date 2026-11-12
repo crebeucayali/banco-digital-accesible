@@ -1,0 +1,22 @@
+/* Fase 3.2: estructura compartida de las páginas de categoría. */
+.ra-pagina-panel{max-width:1120px}
+.ra-migas{display:flex;flex-wrap:wrap;align-items:center;gap:.65rem;margin-bottom:1.5rem;font-size:.9rem;color:#375360}
+.ra-migas a{text-decoration:underline;text-underline-offset:3px}
+.ra-categoria-abreviatura{display:inline-flex;align-items:center;justify-content:center;margin-left:.35rem;padding:.2rem .45rem;border-radius:.35rem;background:#1f6a5a;color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:.7rem;letter-spacing:normal}
+.ra-navegacion-secciones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin:2rem 0}
+.ra-navegacion-secciones a{display:flex;align-items:center;justify-content:center;padding:12px;min-height:48px;border:1px solid #b1c9c3;border-radius:10px;background:#eef6f3;color:#17324d;text-decoration:none;text-align:center;font-size:.9rem;font-weight:700;overflow-wrap:anywhere}
+.ra-navegacion-secciones a[aria-current="page"]{background:#195f52;color:#fff;border-color:#195f52}
+.ra-navegacion-secciones a:hover{border-color:#195f52;text-decoration:underline}
+.ra-navegacion-secciones a:focus-visible,.ra-migas a:focus-visible,.ra-nota-candidata a:focus-visible{outline:3px solid #bd6a13;outline-offset:3px}
+.ra-contenido-categoria{padding-top:.5rem}
+.ra-contenido-categoria h3{margin:0 0 1rem;color:#17324d;font-size:1.3rem}
+.ra-pagina-reserva{padding:1.2rem 1.35rem;background:#f3f8f6;border:1px dashed #759d95;border-radius:12px;line-height:1.7;color:#284e54}
+.ra-pagina-reserva p{margin:0}
+.ra-nota-candidata{margin-top:1.75rem;padding:1rem;background:#f0f5f3;border-left:4px solid #1f6a5a;color:#284e54}
+html.eva-alto-contraste :is(.ra-migas,.ra-contenido-categoria h3,.ra-pagina-reserva,.ra-nota-candidata,.ra-navegacion-secciones a){background:#000!important;color:#fff!important;border-color:#fff!important}
+html.eva-alto-contraste .ra-navegacion-secciones a[aria-current="page"]{background:#fff!important;color:#000!important}
+@media(max-width:760px){.ra-navegacion-secciones{grid-template-columns:1fr}.ra-navegacion-secciones a{justify-content:flex-start}}
+
+/* Etiqueta provisional de estado: Materiales disponibles y elaborados. */
+.ra-estado-implementacion{display:inline-flex;align-items:center;min-height:36px;margin:.75rem 0 1rem;padding:.5rem .9rem;border:1px solid #8e6b26;border-radius:999px;background:#fff5da;color:#59400b;font-size:.95rem;font-weight:700;line-height:1.35}
+html.eva-alto-contraste .ra-estado-implementacion{background:#000!important;color:#fff!important;border:2px solid #fff!important}
