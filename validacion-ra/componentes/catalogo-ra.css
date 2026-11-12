@@ -1,0 +1,24 @@
+/* Componentes de catálogo RA, aislados de los estilos de la portada anterior. */
+.ra-catalogo-filtros{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0}
+.ra-catalogo-filtro,.ra-catalogo-pagina{font:inherit;min-height:44px;padding:.5rem .85rem;border:1px solid #53676c;border-radius:.55rem;background:#fff;color:#163e49;cursor:pointer}
+.ra-catalogo-filtro[aria-pressed="true"]{background:#075e54;color:#fff;border-color:#075e54}
+.ra-catalogo-filtro:focus-visible,.ra-catalogo-pagina:focus-visible,.ra-catalogo-enlace:focus-visible{outline:3px solid #c7791a;outline-offset:3px}
+.ra-catalogo-pagina:disabled{opacity:.5;cursor:not-allowed}
+.ra-catalogo-estado{min-height:1.5rem;margin:1rem 0;color:inherit}
+.ra-catalogo-rejilla{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1rem;align-items:start}
+.ra-catalogo-tarjeta{min-width:0;border:1px solid #a4bbc1;background:#fff;color:#173941;padding:1rem;border-radius:.9rem;overflow-wrap:anywhere}
+.ra-catalogo-titulo{font-size:1.05rem;line-height:1.3;margin:0 0 .65rem}
+.ra-catalogo-imagen{display:block;width:100%;height:auto;aspect-ratio:4 / 3;object-fit:contain;background:#edf3f5;border-radius:.5rem}
+.ra-catalogo-imagen-pendiente{display:flex;align-items:center;justify-content:center;min-height:8rem;padding:1rem;background:#e7eff1;text-align:center;border-radius:.5rem}
+.ra-catalogo-nivel{font-size:.85rem;font-weight:700;margin:.2rem 0 .7rem}
+.ra-catalogo-descripcion{font-size:.925rem;line-height:1.5}
+.ra-catalogo-enlace{display:inline-block;margin-top:.5rem;text-underline-offset:3px}
+.ra-catalogo-paginacion{display:flex;align-items:center;justify-content:center;gap:.8rem;flex-wrap:wrap;margin:1.5rem auto}
+html.eva-alto-contraste .ra-catalogo-tarjeta,html.eva-alto-contraste .ra-catalogo-imagen-pendiente,html.eva-alto-contraste .ra-catalogo-filtro,html.eva-alto-contraste .ra-catalogo-pagina{background:#000!important;color:#fff!important;border-color:#fff!important}
+html.eva-alto-contraste .ra-catalogo-filtro[aria-pressed="true"]{background:#fff!important;color:#000!important}
+@media(max-width:480px){.ra-catalogo-rejilla{grid-template-columns:1fr}.ra-catalogo-filtros{gap:.4rem}}
+
+/* Fase 3.4: señal visual y foco de ficha abierta desde un enlace individual. */
+.ra-catalogo-tarjeta:focus-visible,.ra-catalogo-tarjeta-destacada{outline:3px solid #0b6758;outline-offset:3px;scroll-margin-block:1.5rem}
+.ra-catalogo-tarjeta-destacada{border-color:#0b6758;box-shadow:0 0 0 4px rgba(11,103,88,.12)}
+html.eva-alto-contraste .ra-catalogo-tarjeta-destacada{outline:4px solid #fff!important;border-color:#fff!important;box-shadow:none!important}
