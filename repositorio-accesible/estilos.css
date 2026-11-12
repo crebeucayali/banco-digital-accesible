@@ -239,3 +239,23 @@ html.eva-alto-contraste .ra-filtro-nivel[aria-pressed="true"]{background:#fff!im
 @media (max-width:380px){
   body .cabecera .enlace-cabecera{font-size:12px!important;padding:8px 10px!important;}
 }
+
+
+/* Botones de navegación institucional: mismo diseño de Jornadas. */
+body .cabecera .enlaces-superiores .enlace-cabecera {
+  display:inline-flex!important; align-items:center!important; justify-content:center!important;
+  gap:7px!important; min-height:34px!important; padding:7px 14px!important;
+  color:#fff!important; background:#0b3550!important; border:1px solid rgba(255,255,255,.85)!important;
+  border-radius:999px!important; font-size:12px!important; font-weight:700!important;
+  line-height:1.25!important; text-decoration:none!important; text-shadow:none!important;
+  white-space:nowrap!important; box-shadow:0 2px 4px rgba(0,0,0,.16)!important;
+}
+body .cabecera .enlaces-superiores .enlace-cabecera:hover,
+body .cabecera .enlaces-superiores .enlace-cabecera:focus-visible {
+  background:#14516a!important; border-color:#fff!important;
+}
+body .cabecera .enlaces-superiores .enlace-cabecera svg {display:block;width:15px;height:15px;flex:none;}
+@media(max-width:700px) {
+  body .cabecera .enlaces-superiores {gap:8px!important;}
+  body .cabecera .enlaces-superiores .enlace-cabecera {min-height:36px!important;padding:8px 12px!important;font-size:12px!important;white-space:normal!important;}
+}
