@@ -25,7 +25,8 @@ if (contenedor) {
   const esCuentoAntes = titulo => contenedor.dataset.categoria === 'materiales_disponibles'
     && /^antes[,]?\s+muy\s+antes\s*-\s*cuento\s*n[.º°]?\s*5\s*$/i.test(titulo.normalize('NFC').trim());
   function abrir(tarjeta, boton) {
-    const titulo = (tarjeta.querySelector('.ra-et-copiar-titulo') || tarjeta.querySelector('.ra-catalogo-titulo'))?.textContent?.trim() || 'Recurso';
+    const tituloElemento = tarjeta.querySelector('.ra-catalogo-titulo');
+    const titulo = tituloElemento?.dataset.tituloOriginal || tituloElemento?.textContent?.trim() || 'Recurso';
     const descripcion = tarjeta.querySelector('.ra-catalogo-descripcion')?.textContent?.trim() || 'Descripción no disponible.';
     const foto = tarjeta.querySelector('.ra-catalogo-imagen');
     const enlace = tarjeta.querySelector('.ra-catalogo-enlace');
@@ -85,6 +86,7 @@ if (contenedor) {
       const enlaceParaCopiar = tarjeta.querySelector('.ra-catalogo-enlace');
       if (tituloTarjeta && enlaceParaCopiar && esCuentoAntes(tituloTarjeta.textContent || '')) {
         const textoTitulo = tituloTarjeta.textContent.trim();
+        tituloTarjeta.dataset.tituloOriginal = textoTitulo;
         tituloTarjeta.replaceChildren();
         const copiarTitulo = document.createElement('button');
         copiarTitulo.type = 'button';
