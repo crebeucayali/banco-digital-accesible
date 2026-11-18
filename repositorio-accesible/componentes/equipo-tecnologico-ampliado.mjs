@@ -24,6 +24,9 @@ if (contenedor) {
   });
   const esCuentoAntes = titulo => contenedor.dataset.categoria === 'materiales_disponibles'
     && /^antes[,]?\s+muy\s+antes\s*-\s*cuento\s*n[.º°]?\s*5\s*$/i.test(titulo.normalize('NFC').trim());
+  const esZorroLuna = titulo => contenedor.dataset.categoria === 'materiales_disponibles'
+    && titulo.normalize('NFC').trim().toLocaleLowerCase('es') === 'cuentos y tradiciones ii - el zorro enamorado de la luna';
+  const esCuentoConCopia = titulo => esCuentoAntes(titulo) || esZorroLuna(titulo);
   function abrir(tarjeta, boton) {
     const tituloElemento = tarjeta.querySelector('.ra-catalogo-titulo');
     const titulo = tituloElemento?.dataset.tituloOriginal || tituloElemento?.textContent?.trim() || 'Recurso';
@@ -34,7 +37,7 @@ if (contenedor) {
     const encabezado = document.createElement('h2');
     encabezado.textContent = titulo;
     encabezado.className = 'ra-et-encabezado';
-    if (esCuentoAntes(titulo) && enlace) {
+    if (esCuentoConCopia(titulo) && enlace) {
       const botonCopiar = document.createElement('button');
       botonCopiar.type = 'button';
       botonCopiar.className = 'ra-et-copiar-titulo ra-et-copiar-modal';
@@ -92,7 +95,7 @@ if (contenedor) {
     texto.className = 'ra-et-texto';
     texto.textContent = descripcion;
     detalle.append(subtitulo, texto);
-    if (enlace && !esCuentoAntes(titulo)) {
+    if (enlace && !esCuentoConCopia(titulo)) {
       const directo = document.createElement('a');
       directo.className = 'ra-et-enlace';
       directo.href = enlace.href;
@@ -101,6 +104,18 @@ if (contenedor) {
     }
     if (esCuentoAntes(titulo)) {
       montarLecturaQueBonito(detalle);
+    } else if (esZorroLuna(titulo)) {
+      const lecturaPendiente = document.createElement('section');
+      lecturaPendiente.className = 'ra-lectura-cuento';
+      lecturaPendiente.setAttribute('aria-label', 'Lectura digital de Cuentos y tradiciones II - El zorro enamorado de la luna');
+      const subtituloLectura = document.createElement('h3');
+      subtituloLectura.textContent = 'Lectura digital accesible';
+      const avisoLectura = document.createElement('p');
+      avisoLectura.className = 'ra-lectura-aviso';
+      avisoLectura.setAttribute('role', 'status');
+      avisoLectura.textContent = 'Texto convencional y braille digital pendientes de incorporación.';
+      lecturaPendiente.append(subtituloLectura, avisoLectura);
+      detalle.append(lecturaPendiente);
     }
     activador = boton;
     zoom = false;
@@ -113,7 +128,7 @@ if (contenedor) {
       tarjeta.dataset.etPreparada = 'true';
       const tituloTarjeta = tarjeta.querySelector('.ra-catalogo-titulo');
       const enlaceParaCopiar = tarjeta.querySelector('.ra-catalogo-enlace');
-      if (tituloTarjeta && enlaceParaCopiar && esCuentoAntes(tituloTarjeta.textContent || '')) {
+      if (tituloTarjeta && enlaceParaCopiar && esCuentoConCopia(tituloTarjeta.textContent || '')) {
         const textoTitulo = tituloTarjeta.textContent.trim();
         tituloTarjeta.dataset.tituloOriginal = textoTitulo;
         tituloTarjeta.replaceChildren();
