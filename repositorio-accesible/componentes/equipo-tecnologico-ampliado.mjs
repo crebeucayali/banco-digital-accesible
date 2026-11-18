@@ -1,6 +1,7 @@
 // Presentación reutilizable en Equipos tecnológicos y Materiales disponibles. No modifica datos ni panel.
 import { montarLecturaQueBonito } from './lectura-que-bonito.mjs?v=2';
 import { montarLecturaZorroLuna } from './lectura-zorro-luna.mjs?v=5';
+import { montarLecturaMuqui } from './lectura-muqui.mjs?v=1';
 const contenedor = document.querySelector('#catalogo-ra:is([data-categoria="equipos_tecnologicos"],[data-categoria="materiales_disponibles"])');
 if (contenedor) {
   const dialogo = document.createElement('dialog');
@@ -29,7 +30,9 @@ if (contenedor) {
   const esZorroLuna = titulo => contenedor.dataset.categoria === 'materiales_disponibles'
     && ['colección de cuentos y tradiciones ii', 'cuentos y tradiciones ii - el zorro enamorado de la luna']
       .includes(titulo.normalize('NFC').trim().toLocaleLowerCase('es'));
-  const esCuentoConCopia = titulo => esCuentoAntes(titulo) || esZorroLuna(titulo);
+  const esMuqui = titulo => contenedor.dataset.categoria === 'materiales_disponibles'
+    && /^el\s+muqui\s*-\s*cuento\s*n[.º°°]?\s*11\s*$/i.test(titulo.normalize('NFC').trim());
+  const esCuentoConCopia = titulo => esCuentoAntes(titulo) || esZorroLuna(titulo) || esMuqui(titulo);
   function abrir(tarjeta, boton) {
     const tituloElemento = tarjeta.querySelector('.ra-catalogo-titulo');
     const titulo = tituloElemento?.dataset.tituloOriginal || tituloElemento?.textContent?.trim() || 'Recurso';
@@ -109,6 +112,8 @@ if (contenedor) {
       montarLecturaQueBonito(detalle);
     } else if (esZorroLuna(titulo)) {
       montarLecturaZorroLuna(detalle);
+    } else if (esMuqui(titulo)) {
+      montarLecturaMuqui(detalle);
     }
     activador = boton;
     zoom = false;
