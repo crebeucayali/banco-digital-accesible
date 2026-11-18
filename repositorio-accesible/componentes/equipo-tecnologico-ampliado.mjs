@@ -34,6 +34,35 @@ if (contenedor) {
     const encabezado = document.createElement('h2');
     encabezado.textContent = titulo;
     encabezado.className = 'ra-et-encabezado';
+    if (esCuentoAntes(titulo) && enlace) {
+      const botonCopiar = document.createElement('button');
+      botonCopiar.type = 'button';
+      botonCopiar.className = 'ra-et-copiar-titulo ra-et-copiar-modal';
+      botonCopiar.innerHTML = '<svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.7-1.7"/></svg>';
+      botonCopiar.title = 'Copiar enlace directo al material';
+      botonCopiar.setAttribute('aria-label', 'Copiar enlace directo de ' + titulo);
+      const estadoCopia = document.createElement('span');
+      estadoCopia.className = 'ra-et-copia-estado ra-et-copia-modal-estado';
+      estadoCopia.setAttribute('role', 'status');
+      botonCopiar.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(enlace.href);
+          estadoCopia.textContent = 'Enlace copiado.';
+          botonCopiar.title = 'Enlace copiado';
+        } catch {
+          const campo = document.createElement('input');
+          campo.type = 'text';
+          campo.value = enlace.href;
+          campo.readOnly = true;
+          campo.className = 'ra-et-copia-campo';
+          estadoCopia.replaceChildren(campo);
+          campo.focus();
+          campo.select();
+          botonCopiar.title = 'Selecciona y copia el enlace';
+        }
+      });
+      encabezado.append(document.createTextNode(' '), botonCopiar, estadoCopia);
+    }
     detalle.append(encabezado);
     if (foto) {
       const imagen = document.createElement('img');
