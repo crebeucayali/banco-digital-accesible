@@ -1,5 +1,5 @@
 // Presentación reutilizable en Equipos tecnológicos y Materiales disponibles. No modifica datos ni panel.
-import { montarLecturaQueBonito } from './lectura-que-bonito.mjs';
+import { montarLecturaQueBonito } from './lectura-que-bonito.mjs?v=2';
 const contenedor = document.querySelector('#catalogo-ra:is([data-categoria="equipos_tecnologicos"],[data-categoria="materiales_disponibles"])');
 if (contenedor) {
   const dialogo = document.createElement('dialog');
