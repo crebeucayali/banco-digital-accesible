@@ -82,7 +82,7 @@ export function montarLecturaZorroLuna(contenedor) {
   estado.setAttribute('role', 'status');
   const aviso = document.createElement('p');
   aviso.className = 'ra-lectura-aviso';
-  aviso.textContent = 'Los textos braille proceden de los documentos facilitados y requieren revisión signográfica antes de imprimirse en relieve. Se conservan las referencias de páginas de los fragmentos 2 y 3.';
+  aviso.textContent = 'Los textos braille proceden de los documentos facilitados y requieren revisión signográfica antes de imprimirse en relieve. Las etiquetas de número de página se omiten en la lectura digital de los fragmentos 2 y 3.';
   controles.append(copiar);
   panel.append(selectorFragmentos, modos, contenido, controles, estado, aviso);
   seccion.append(titulo, panel);
@@ -93,7 +93,11 @@ export function montarLecturaZorroLuna(contenedor) {
     tinta.setAttribute('aria-pressed', String(modo === 'tinta'));
     braille.setAttribute('aria-pressed', String(modo === 'braille'));
     botonesFragmento.forEach((boton, indice) => boton.setAttribute('aria-pressed', String(fragmentoActual === indice)));
-    contenido.textContent = lecturas[fragmentoActual][modo];
+    const texto = lecturas[fragmentoActual][modo];
+    // Los fragmentos 2 y 3 se leen sin etiquetas de paginación del libro.
+    contenido.textContent = fragmentoActual === 0
+      ? texto
+      : texto.replace(/^Página (?:1[0-9]|2[0-4])[ \\t]*$/gm, '').replace(/\\n{3,}/g, '\\n\\n').trim();
     contenido.classList.toggle('ra-lectura-braille', modo === 'braille');
     estado.textContent = '';
   }
