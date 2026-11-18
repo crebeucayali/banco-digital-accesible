@@ -99,6 +99,13 @@ if (contenedor) {
         miniatura.alt = '';
         miniatura.loading = 'lazy';
         previa.appendChild(miniatura);
+        if (contenedor.dataset.categoria === 'materiales_disponibles') {
+          foto.addEventListener('pointerenter', event => {
+            if (event.pointerType === 'mouse') foto.classList.add('ra-et-hover-activo');
+          });
+          foto.addEventListener('pointerleave', () => foto.classList.remove('ra-et-hover-activo'));
+          foto.addEventListener('pointercancel', () => foto.classList.remove('ra-et-hover-activo'));
+        }
       }
       if (descripcion) {
         const texto = document.createElement('p');
@@ -107,6 +114,12 @@ if (contenedor) {
       }
       tarjeta.appendChild(previa);
     }
+  }
+  if (contenedor.dataset.categoria === 'materiales_disponibles') {
+    // Al desplazarse, la vista flotante se cierra y no tapa el prólogo ni el pie.
+    window.addEventListener('scroll', () => {
+      contenedor.querySelectorAll('.ra-et-hover-activo').forEach(imagen => imagen.classList.remove('ra-et-hover-activo'));
+    }, { passive: true });
   }
   const observador = new MutationObserver(preparar);
   observador.observe(contenedor, { childList: true, subtree: true });
