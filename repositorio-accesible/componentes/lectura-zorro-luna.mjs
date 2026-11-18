@@ -22,10 +22,14 @@ const fragmentos = [
     "braille": "⠨⠎⠊ ⠧⠊⠧⠊⠗ ⠉⠕⠝⠍⠊⠛⠕ ⠞⠾ ⠟⠥⠊⠎⠊⠑⠗⠁⠎⠂ ⠏⠕⠗ ⠞⠊ ⠙⠑⠚⠁⠗⠌⠁ ⠇⠁ ⠞⠊⠑⠗⠗⠁ ⠑⠝⠞⠑⠗⠁⠄ ⠨⠽ ⠎⠊ ⠝⠕ ⠍⠑ ⠟⠥⠊⠎⠊⠑⠗⠁⠎⠂ ⠉⠥⠊⠙⠁⠗⠮ ⠞⠥ ⠗⠑⠋⠇⠑⠚⠕ ⠇⠁ ⠧⠊⠙⠁ ⠑⠝⠞⠑⠗⠁⠦⠄\n\n⠨⠇⠁ ⠨⠇⠥⠝⠁⠂ ⠁⠇ ⠑⠎⠉⠥⠉⠓⠁⠗ ⠑⠎⠁⠎ ⠏⠁⠇⠁⠃⠗⠁⠎ ⠎⠕⠝⠗⠊⠬ ⠽ ⠞⠁⠝⠞⠕ ⠎⠑ ⠉⠕⠝⠍⠕⠧⠊⠬ ⠟⠥⠑ ⠊⠝⠧⠊⠞⠬ ⠁⠇ ⠵⠕⠗⠗⠕ ⠁ ⠧⠊⠧⠊⠗ ⠏⠁⠗⠁ ⠎⠊⠑⠍⠏⠗⠑ ⠉⠕⠝ ⠑⠇⠇⠁⠄\n\n⠨⠁⠓⠌ ⠑⠎⠞⠷ ⠑⠇ ⠵⠕⠗⠗⠕ ⠑⠝⠁⠍⠕⠗⠁⠙⠕ ⠓⠁⠎⠞⠁ ⠓⠕⠽ ⠙⠌⠁⠂ ⠁⠉⠕⠍⠏⠁⠻⠁⠝⠙⠕ ⠁ ⠇⠁ ⠨⠇⠥⠝⠁ ⠑⠝ ⠎⠥⠎ ⠧⠊⠁⠚⠑⠎⠂ ⠉⠁⠝⠞⠷⠝⠙⠕⠇⠑⠂ ⠟⠥⠑⠗⠊⠮⠝⠙⠕⠇⠁⠄\n\n⠨⠝⠕⠎⠕⠞⠗⠕⠎ ⠙⠑⠎⠙⠑ ⠇⠁ ⠨⠞⠊⠑⠗⠗⠁ ⠇⠕⠎ ⠧⠑⠍⠕⠎ ⠁ ⠧⠑⠉⠑⠎⠄"
   }
 ];
+const cuentoCompleto = {
+  tinta: fragmentos.map(item => item.tinta).join('\n\n'),
+  braille: fragmentos.map(item => item.braille).join('\n\n')
+};
 export function montarLecturaZorroLuna(contenedor) {
   if (!contenedor || contenedor.querySelector('.ra-lectura-cuento')) return;
   const seccion = document.createElement('section');
-  seccion.className = 'ra-lectura-cuento';
+  seccion.className = 'ra-lectura-cuento ra-lectura-completa';
   seccion.setAttribute('aria-label', 'Lectura digital de El zorro enamorado de la Luna');
   const titulo = document.createElement('h3');
   titulo.textContent = 'Lectura digital accesible';
@@ -42,55 +46,40 @@ export function montarLecturaZorroLuna(contenedor) {
   braille.type = 'button';
   braille.textContent = 'Braille digital';
   modos.append(tinta, braille);
-  const indicador = document.createElement('p');
-  indicador.className = 'ra-lectura-indicador';
   const contenido = document.createElement('div');
   contenido.className = 'ra-lectura-texto';
   contenido.setAttribute('role', 'region');
-  contenido.setAttribute('aria-label', 'Fragmento actual del cuento');
+  contenido.setAttribute('aria-label', 'Texto completo del cuento');
   contenido.tabIndex = 0;
-  const navegacion = document.createElement('nav');
-  navegacion.className = 'ra-lectura-navegacion';
-  navegacion.setAttribute('aria-label', 'Fragmentos del cuento');
-  const anterior = document.createElement('button');
-  anterior.type = 'button';
-  anterior.textContent = 'Anterior';
-  const siguiente = document.createElement('button');
-  siguiente.type = 'button';
-  siguiente.textContent = 'Siguiente';
+  const controles = document.createElement('div');
+  controles.className = 'ra-lectura-navegacion';
   const copiar = document.createElement('button');
   copiar.type = 'button';
-  copiar.textContent = 'Copiar fragmento';
+  copiar.textContent = 'Copiar texto completo';
   const estado = document.createElement('span');
   estado.className = 'ra-lectura-estado';
   estado.setAttribute('role', 'status');
   const aviso = document.createElement('p');
   aviso.className = 'ra-lectura-aviso';
-  aviso.textContent = 'La división en cinco fragmentos es para lectura digital, no corresponde necesariamente a las páginas impresas. El braille fue proporcionado en el documento y requiere revisión signográfica antes de imprimirse en relieve.';
-  navegacion.append(anterior, siguiente, copiar);
-  panel.append(modos, indicador, contenido, navegacion, estado, aviso);
+  aviso.textContent = 'El braille fue proporcionado en el documento y requiere revisión signográfica antes de imprimirse en relieve.';
+  controles.append(copiar);
+  panel.append(modos, contenido, controles, estado, aviso);
   seccion.append(titulo, panel);
   contenedor.append(seccion);
-  let fragmento = 0;
   let modo = 'tinta';
   function render() {
     tinta.setAttribute('aria-pressed', String(modo === 'tinta'));
     braille.setAttribute('aria-pressed', String(modo === 'braille'));
-    indicador.textContent = 'Fragmento ' + (fragmento + 1) + ' de ' + fragmentos.length;
-    contenido.textContent = fragmentos[fragmento][modo];
+    contenido.textContent = cuentoCompleto[modo];
     contenido.classList.toggle('ra-lectura-braille', modo === 'braille');
-    anterior.disabled = fragmento === 0;
-    siguiente.disabled = fragmento === fragmentos.length - 1;
     estado.textContent = '';
   }
   tinta.addEventListener('click', () => { modo = 'tinta'; render(); });
   braille.addEventListener('click', () => { modo = 'braille'; render(); });
-  anterior.addEventListener('click', () => { fragmento = Math.max(0,fragmento - 1); render(); contenido.focus(); });
-  siguiente.addEventListener('click', () => { fragmento = Math.min(fragmentos.length - 1,fragmento + 1); render(); contenido.focus(); });
   copiar.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(contenido.textContent);
-      estado.textContent = 'Fragmento copiado.';
+      estado.textContent = 'Texto completo copiado.';
     } catch {
       estado.textContent = 'No fue posible copiar automáticamente. Selecciona el texto para copiarlo.';
     }
