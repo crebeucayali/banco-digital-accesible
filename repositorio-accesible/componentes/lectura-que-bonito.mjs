@@ -47,17 +47,11 @@ export function montarLecturaQueBonito(contenedor) {
   if (!contenedor || contenedor.querySelector('.ra-lectura-cuento')) return;
   const seccion = document.createElement('section');
   seccion.className = 'ra-lectura-cuento';
-  seccion.setAttribute('aria-label', 'Lectura digital de ¡Qué bonito!');
+  seccion.setAttribute('aria-label', 'Lectura digital de Antes muy antes - Cuento n° 5');
   const titulo = document.createElement('h3');
   titulo.textContent = 'Lectura digital accesible';
-  const botonAbrir = document.createElement('button');
-  botonAbrir.type = 'button';
-  botonAbrir.className = 'ra-lectura-boton';
-  botonAbrir.textContent = 'Leer cuento';
-  botonAbrir.setAttribute('aria-expanded', 'false');
   const panel = document.createElement('div');
   panel.className = 'ra-lectura-panel';
-  panel.hidden = true;
   const modos = document.createElement('div');
   modos.className = 'ra-lectura-modos';
   modos.setAttribute('role', 'group');
@@ -96,7 +90,7 @@ export function montarLecturaQueBonito(contenedor) {
   estado.className = 'ra-lectura-estado';
   navegacion.append(anterior, siguiente, copiar);
   panel.append(modos, paginaActual, contenido, navegacion, estado, aviso);
-  seccion.append(titulo, botonAbrir, panel);
+  seccion.append(titulo, panel);
   contenedor.append(seccion);
   let pagina = 0;
   let modo = 'tinta';
@@ -111,12 +105,7 @@ export function montarLecturaQueBonito(contenedor) {
     siguiente.disabled = pagina === paginas.length - 1;
     estado.textContent = '';
   }
-  botonAbrir.addEventListener('click', () => {
-    panel.hidden = !panel.hidden;
-    botonAbrir.setAttribute('aria-expanded', String(!panel.hidden));
-    if (!panel.hidden) { render(); tinta.focus(); }
-    else botonAbrir.focus();
-  });
+  render();
   tinta.addEventListener('click', () => { modo = 'tinta'; render(); });
   braille.addEventListener('click', () => { modo = 'braille'; render(); });
   anterior.addEventListener('click', () => { pagina = Math.max(0, pagina - 1); render(); contenido.focus(); });
