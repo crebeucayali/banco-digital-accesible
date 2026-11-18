@@ -16,3 +16,6 @@
 .ra-lectura-cuento button:focus-visible,.ra-lectura-texto:focus-visible{outline:3px solid #ce7b18;outline-offset:3px}
 html.eva-alto-contraste .ra-lectura-cuento :is(button,.ra-lectura-texto){background:#000!important;color:#fff!important;border-color:#fff!important}
 @media(max-width:480px){.ra-lectura-modos button{flex:1 1 100%}.ra-lectura-texto{max-height:46dvh;padding:.75rem}}
+
+/* El zorro enamorado de la luna: texto completo sin desplazamiento interno. */
+.ra-lectura-completa .ra-lectura-texto{max-height:none;overflow:visible;white-space:pre-line}
