@@ -89,21 +89,32 @@ if (contenedor) {
         const copiarTitulo = document.createElement('button');
         copiarTitulo.type = 'button';
         copiarTitulo.className = 'ra-et-copiar-titulo';
-        copiarTitulo.textContent = textoTitulo;
+        copiarTitulo.innerHTML = '<svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.7-1.7"/></svg>';
         copiarTitulo.title = 'Copiar enlace directo al material';
-        copiarTitulo.setAttribute('aria-label', textoTitulo + '. Copiar enlace directo al material');
+        copiarTitulo.setAttribute('aria-label', 'Copiar enlace directo de ' + textoTitulo);
         const confirmacion = document.createElement('span');
         confirmacion.className = 'ra-et-copia-estado';
         confirmacion.setAttribute('role', 'status');
         copiarTitulo.addEventListener('click', async () => {
+          const url = enlaceParaCopiar.href;
           try {
-            await navigator.clipboard.writeText(enlaceParaCopiar.href);
+            await navigator.clipboard.writeText(url);
             confirmacion.textContent = 'Enlace copiado.';
+            copiarTitulo.title = 'Enlace copiado';
           } catch {
-            confirmacion.textContent = 'No se pudo copiar automáticamente. Utiliza el enlace directo de la tarjeta.';
+            // Alternativa disponible cuando el portapapeles del navegador está bloqueado.
+            const campo = document.createElement('input');
+            campo.type = 'text';
+            campo.value = url;
+            campo.readOnly = true;
+            campo.className = 'ra-et-copia-campo';
+            confirmacion.replaceChildren(campo);
+            campo.focus();
+            campo.select();
+            copiarTitulo.title = 'Selecciona y copia el enlace';
           }
         });
-        tituloTarjeta.append(copiarTitulo, confirmacion);
+        tituloTarjeta.append(document.createTextNode(textoTitulo + ' '), copiarTitulo, confirmacion);
       }
       const descripcion = tarjeta.querySelector('.ra-catalogo-descripcion');
       if (descripcion) descripcion.classList.add('ra-et-resumen');
