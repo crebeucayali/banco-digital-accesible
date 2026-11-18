@@ -22,6 +22,8 @@ if (contenedor) {
   dialogo.addEventListener('click', event => {
     if (event.target === dialogo) dialogo.close();
   });
+  const esCuentoAntes = titulo => contenedor.dataset.categoria === 'materiales_disponibles'
+    && /^antes[,]?\s+muy\s+antes\s*-\s*cuento\s*n[.º°]?\s*5\s*$/i.test(titulo.normalize('NFC').trim());
   function abrir(tarjeta, boton) {
     const titulo = tarjeta.querySelector('.ra-catalogo-titulo')?.textContent?.trim() || 'Recurso';
     const descripcion = tarjeta.querySelector('.ra-catalogo-descripcion')?.textContent?.trim() || 'Descripción no disponible.';
@@ -60,14 +62,14 @@ if (contenedor) {
     texto.className = 'ra-et-texto';
     texto.textContent = descripcion;
     detalle.append(subtitulo, texto);
-    if (enlace) {
+    if (enlace && !esCuentoAntes(titulo)) {
       const directo = document.createElement('a');
       directo.className = 'ra-et-enlace';
       directo.href = enlace.href;
       directo.textContent = 'Enlace directo al material';
       detalle.append(directo);
     }
-    if (contenedor.dataset.categoria === 'materiales_disponibles' && /^antes[,]?\s+muy\s+antes\s*-\s*cuento\s*n[.º°°]?\s*5\s*$/i.test(titulo.normalize('NFC').trim())) {
+    if (esCuentoAntes(titulo)) {
       montarLecturaQueBonito(detalle);
     }
     activador = boton;
@@ -79,6 +81,30 @@ if (contenedor) {
   function preparar() {
     for (const tarjeta of contenedor.querySelectorAll('.ra-catalogo-tarjeta:not([data-et-preparada])')) {
       tarjeta.dataset.etPreparada = 'true';
+      const tituloTarjeta = tarjeta.querySelector('.ra-catalogo-titulo');
+      const enlaceParaCopiar = tarjeta.querySelector('.ra-catalogo-enlace');
+      if (tituloTarjeta && enlaceParaCopiar && esCuentoAntes(tituloTarjeta.textContent || '')) {
+        const textoTitulo = tituloTarjeta.textContent.trim();
+        tituloTarjeta.replaceChildren();
+        const copiarTitulo = document.createElement('button');
+        copiarTitulo.type = 'button';
+        copiarTitulo.className = 'ra-et-copiar-titulo';
+        copiarTitulo.textContent = textoTitulo;
+        copiarTitulo.title = 'Copiar enlace directo al material';
+        copiarTitulo.setAttribute('aria-label', textoTitulo + '. Copiar enlace directo al material');
+        const confirmacion = document.createElement('span');
+        confirmacion.className = 'ra-et-copia-estado';
+        confirmacion.setAttribute('role', 'status');
+        copiarTitulo.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(enlaceParaCopiar.href);
+            confirmacion.textContent = 'Enlace copiado.';
+          } catch {
+            confirmacion.textContent = 'No se pudo copiar automáticamente. Utiliza el enlace directo de la tarjeta.';
+          }
+        });
+        tituloTarjeta.append(copiarTitulo, confirmacion);
+      }
       const descripcion = tarjeta.querySelector('.ra-catalogo-descripcion');
       if (descripcion) descripcion.classList.add('ra-et-resumen');
       const boton = document.createElement('button');
