@@ -94,10 +94,10 @@ export function montarLecturaZorroLuna(contenedor) {
     braille.setAttribute('aria-pressed', String(modo === 'braille'));
     botonesFragmento.forEach((boton, indice) => boton.setAttribute('aria-pressed', String(fragmentoActual === indice)));
     const texto = lecturas[fragmentoActual][modo];
-    // Los fragmentos 2 y 3 se leen sin etiquetas de paginación del libro.
+    // Retira exclusivamente las etiquetas de páginas de los fragmentos 2 y 3.
     contenido.textContent = fragmentoActual === 0
       ? texto
-      : texto.replace(/^Página (?:1[0-9]|2[0-4])[ \\t]*$/gm, '').replace(/\\n{3,}/g, '\\n\\n').trim();
+      : texto.replace(/^Página (?:1[0-9]|2[0-4])[ \t]*$/gm, '').replace(/\n{3,}/g, '\n\n').trim();
     contenido.classList.toggle('ra-lectura-braille', modo === 'braille');
     estado.textContent = '';
   }
