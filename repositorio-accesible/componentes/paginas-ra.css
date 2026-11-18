@@ -20,3 +20,10 @@ html.eva-alto-contraste .ra-navegacion-secciones a[aria-current="page"]{backgrou
 /* Etiqueta provisional de estado: Materiales disponibles y elaborados. */
 .ra-estado-implementacion{display:inline-flex;align-items:center;min-height:36px;margin:.75rem 0 1rem;padding:.5rem .9rem;border:1px solid #8e6b26;border-radius:999px;background:#fff5da;color:#59400b;font-size:.95rem;font-weight:700;line-height:1.35}
 html.eva-alto-contraste .ra-estado-implementacion{background:#000!important;color:#fff!important;border:2px solid #fff!important}
+
+/* En Materiales disponibles el prólogo debe seguir al catálogo sin el margen negativo del panel inicial. */
+#prologo-adaptacion-braille{margin-top:24px;clear:both;z-index:1}
+#prologo-adaptacion-braille .panel-encabezado h2{font-size:clamp(1.2rem,2.2vw,1.55rem);line-height:1.35}
+#prologo-adaptacion-braille .ra-contenido-categoria{line-height:1.65}
+#prologo-adaptacion-braille .ra-contenido-categoria p{margin:0 0 1rem}
+#prologo-adaptacion-braille .ra-contenido-categoria p:last-child{margin-bottom:0}
