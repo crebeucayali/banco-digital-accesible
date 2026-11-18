@@ -26,6 +26,10 @@ const cuentoCompleto = {
   tinta: fragmentos.map(item => item.tinta).join('\n\n'),
   braille: fragmentos.map(item => item.braille).join('\n\n')
 };
+const lecturas = [
+  { titulo: 'El zorro enamorado de la Luna', tinta: cuentoCompleto.tinta, braille: cuentoCompleto.braille },
+  { titulo: 'Mi Mantita linda', tinta: "Página 10\nMi Mantita linda\n\n- \"Mantita linda, tú que me cargas y que me abrigas, tú que guardas mis alimentos y la cosecha, ¿de qué estás hecha?\"\n\n- \"De lana de alpacas y de vicuñas que caminan libres en las montañas; de copos de algodón blanco, cosechados en valles, hilados en huso, tejidos en telar hecho de caspi y de maguey\".\n\nPágina 11\n- \"Mantita linda de lana pura y de algodón, ¿quién te ha tejido?\"\n\n- \"Me han tejido tu hermana, tu hermano, también tu madre, también tu padre. Son los abuelos los que enseñan cómo se teje\".\n\n- \"Mantita hermosa, ¿cómo robaste tus colores al arco iris?\"\n\n- \"No los he robado. Es en\n\nPágina 12\nlas plantas y animales que mis colores he encontrado\".\n\nLa cochinilla que vive en los cactus para los rojos, rosados, violetas y anaranjados.\n\nLa terca retama, que crece siempre, para los amarillos.\n\nEl airampito, para los azules.\n\nCampo con muchas plantas entre ellas el airampito.\n\nPágina 13\n\"Las hojas verdes, para los verdes\".\n\n- \"Mantita linda y calentita, cuando llegue la noche cobija mi cuerpo, ahuyenta mis pesares y cuéntame al oído sueños de colores\".", braille: "Página 10\n⠨⠍⠊ ⠨⠍⠁⠝⠞⠊⠞⠁ ⠇⠊⠝⠙⠁\n\n⠤ ⠦⠨⠍⠁⠝⠞⠊⠞⠁ ⠇⠊⠝⠙⠁⠂ ⠞⠾ ⠟⠥⠑ ⠍⠑ ⠉⠁⠗⠛⠁⠎ ⠽ ⠟⠥⠑ ⠍⠑ ⠁⠃⠗⠊⠛⠁⠎⠂ ⠞⠾ ⠟⠥⠑ ⠛⠥⠁⠗⠙⠁⠎ ⠍⠊⠎ ⠁⠇⠊⠍⠑⠝⠞⠕⠎ ⠽ ⠇⠁ ⠉⠕⠎⠑⠉⠓⠁⠂ ⠢⠙⠑ ⠟⠥⠮ ⠑⠎⠞⠷⠎ ⠓⠑⠉⠓⠁⠢⠦\n\n⠤ ⠦⠨⠙⠑ ⠇⠁⠝⠁ ⠙⠑ ⠁⠇⠏⠁⠉⠁⠎ ⠽ ⠙⠑ ⠧⠊⠉⠥⠻⠁⠎ ⠟⠥⠑ ⠉⠁⠍⠊⠝⠁⠝ ⠇⠊⠃⠗⠑⠎ ⠑⠝ ⠇⠁⠎ ⠍⠕⠝⠞⠁⠻⠁⠎⠆ ⠙⠑ ⠉⠕⠏⠕⠎ ⠙⠑ ⠁⠇⠛⠕⠙⠬⠝ ⠃⠇⠁⠝⠉⠕⠂ ⠉⠕⠎⠑⠉⠓⠁⠙⠕⠎ ⠑⠝ ⠧⠁⠇⠇⠑⠎⠂ ⠓⠊⠇⠁⠙⠕⠎ ⠑⠝ ⠓⠥⠎⠕⠂ ⠞⠑⠚⠊⠙⠕⠎ ⠑⠝ ⠞⠑⠇⠁⠗ ⠓⠑⠉⠓⠕ ⠙⠑ ⠉⠁⠎⠏⠊ ⠽ ⠙⠑ ⠍⠁⠛⠥⠑⠽⠦⠄\n\nPágina 11\n⠤ ⠦⠨⠍⠁⠝⠞⠊⠞⠁ ⠇⠊⠝⠙⠁ ⠙⠑ ⠇⠁⠝⠁ ⠏⠥⠗⠁ ⠽ ⠙⠑ ⠁⠇⠛⠕⠙⠬⠝⠂ ⠢⠟⠥⠊⠮⠝ ⠞⠑ ⠓⠁ ⠞⠑⠚⠊⠙⠕⠢⠦\n\n⠤ ⠦⠨⠍⠑ ⠓⠁⠝ ⠞⠑⠚⠊⠙⠕ ⠞⠥ ⠓⠑⠗⠍⠁⠝⠁⠂ ⠞⠥ ⠓⠑⠗⠍⠁⠝⠕⠂ ⠞⠁⠍⠃⠊⠮⠝ ⠞⠥ ⠍⠁⠙⠗⠑⠂ ⠞⠁⠍⠃⠊⠮⠝ ⠞⠥ ⠏⠁⠙⠗⠑⠄ ⠨⠎⠕⠝ ⠇⠕⠎ ⠁⠃⠥⠑⠇⠕⠎ ⠇⠕⠎ ⠟⠥⠑ ⠑⠝⠎⠑⠻⠁⠝ ⠉⠬⠍⠕ ⠎⠑ ⠞⠑⠚⠑⠦⠄\n\n⠤ ⠦⠨⠍⠁⠝⠞⠊⠞⠁ ⠓⠑⠗⠍⠕⠎⠁⠂ ⠢⠉⠬⠍⠕ ⠗⠕⠃⠁⠎⠞⠑ ⠞⠥⠎ ⠉⠕⠇⠕⠗⠑⠎ ⠁⠇ ⠁⠗⠉⠕ ⠊⠗⠊⠎⠢⠦\n\n⠤ ⠦⠨⠝⠕ ⠇⠕⠎ ⠓⠑ ⠗⠕⠃⠁⠙⠕⠄ ⠨⠑⠎ ⠑⠝\n\nPágina 12\n⠇⠁⠎ ⠏⠇⠁⠝⠞⠁⠎ ⠽ ⠁⠝⠊⠍⠁⠇⠑⠎ ⠟⠥⠑ ⠍⠊⠎ ⠉⠕⠇⠕⠗⠑⠎ ⠓⠑ ⠑⠝⠉⠕⠝⠞⠗⠁⠙⠕⠦⠄\n\n⠨⠇⠁ ⠉⠕⠉⠓⠊⠝⠊⠇⠇⠁ ⠟⠥⠑ ⠧⠊⠧⠑ ⠑⠝ ⠇⠕⠎ ⠉⠁⠉⠞⠥⠎ ⠏⠁⠗⠁ ⠇⠕⠎ ⠗⠕⠚⠕⠎⠂ ⠗⠕⠎⠁⠙⠕⠎⠂ ⠧⠊⠕⠇⠑⠞⠁⠎ ⠽ ⠁⠝⠁⠗⠁⠝⠚⠁⠙⠕⠎⠄\n\n⠨⠇⠁ ⠞⠑⠗⠉⠁ ⠗⠑⠞⠁⠍⠁⠂ ⠟⠥⠑ ⠉⠗⠑⠉⠑ ⠎⠊⠑⠍⠏⠗⠑⠂ ⠏⠁⠗⠁ ⠇⠕⠎ ⠁⠍⠁⠗⠊⠇⠇⠕⠎⠄\n\n⠨⠑⠇ ⠁⠊⠗⠁⠍⠏⠊⠞⠕⠂ ⠏⠁⠗⠁ ⠇⠕⠎ ⠁⠵⠥⠇⠑⠎⠄\n\n⠨⠉⠁⠍⠏⠕ ⠉⠕⠝ ⠍⠥⠉⠓⠁⠎ ⠏⠇⠁⠝⠞⠁⠎ ⠑⠝⠞⠗⠑ ⠑⠇⠇⠁⠎ ⠑⠇ ⠁⠊⠗⠁⠍⠏⠊⠞⠕⠄\n\nPágina 13\n⠦⠨⠇⠁⠎ ⠓⠕⠚⠁⠎ ⠧⠑⠗⠙⠑⠎⠂ ⠏⠁⠗⠁ ⠇⠕⠎ ⠧⠑⠗⠙⠑⠎⠦⠄\n\n⠤ ⠦⠨⠍⠁⠝⠞⠊⠞⠁ ⠇⠊⠝⠙⠁ ⠽ ⠉⠁⠇⠑⠝⠞⠊⠞⠁⠂ ⠉⠥⠁⠝⠙⠕ ⠇⠇⠑⠛⠥⠑ ⠇⠁ ⠝⠕⠉⠓⠑ ⠉⠕⠃⠊⠚⠁ ⠍⠊ ⠉⠥⠑⠗⠏⠕⠂ ⠁⠓⠥⠽⠑⠝⠞⠁ ⠍⠊⠎ ⠏⠑⠎⠁⠗⠑⠎ ⠽ ⠉⠥⠮⠝⠞⠁⠍⠑ ⠁⠇ ⠕⠌⠙⠕ ⠎⠥⠑⠻⠕⠎ ⠙⠑ ⠉⠕⠇⠕⠗⠑⠎⠦⠄" }
+];
 export function montarLecturaZorroLuna(contenedor) {
   if (!contenedor || contenedor.querySelector('.ra-lectura-cuento')) return;
   const seccion = document.createElement('section');
@@ -46,10 +50,26 @@ export function montarLecturaZorroLuna(contenedor) {
   braille.type = 'button';
   braille.textContent = 'Braille digital';
   modos.append(tinta, braille);
+  const selectorFragmentos = document.createElement('div');
+  selectorFragmentos.className = 'ra-lectura-modos ra-lectura-fragmentos';
+  selectorFragmentos.setAttribute('role', 'group');
+  selectorFragmentos.setAttribute('aria-label', 'Seleccionar fragmento del libro');
+  const botonesFragmento = lecturas.map((lectura, indice) => {
+    const boton = document.createElement('button');
+    boton.type = 'button';
+    boton.textContent = 'Fragmento ' + (indice + 1) + ': ' + lectura.titulo;
+    boton.addEventListener('click', () => {
+      fragmentoActual = indice;
+      render();
+    });
+    selectorFragmentos.append(boton);
+    return boton;
+  });
+
   const contenido = document.createElement('div');
   contenido.className = 'ra-lectura-texto';
   contenido.setAttribute('role', 'region');
-  contenido.setAttribute('aria-label', 'Texto completo del cuento');
+  contenido.setAttribute('aria-label', 'Texto completo del fragmento seleccionado');
   contenido.tabIndex = 0;
   const controles = document.createElement('div');
   controles.className = 'ra-lectura-navegacion';
@@ -61,16 +81,18 @@ export function montarLecturaZorroLuna(contenedor) {
   estado.setAttribute('role', 'status');
   const aviso = document.createElement('p');
   aviso.className = 'ra-lectura-aviso';
-  aviso.textContent = 'El braille fue proporcionado en el documento y requiere revisión signográfica antes de imprimirse en relieve.';
+  aviso.textContent = 'Los textos braille proceden de los documentos facilitados y requieren revisión signográfica antes de imprimirse en relieve. Se conservan las referencias de páginas del fragmento 2.';
   controles.append(copiar);
-  panel.append(modos, contenido, controles, estado, aviso);
+  panel.append(selectorFragmentos, modos, contenido, controles, estado, aviso);
   seccion.append(titulo, panel);
   contenedor.append(seccion);
   let modo = 'tinta';
+  let fragmentoActual = 0;
   function render() {
     tinta.setAttribute('aria-pressed', String(modo === 'tinta'));
     braille.setAttribute('aria-pressed', String(modo === 'braille'));
-    contenido.textContent = cuentoCompleto[modo];
+    botonesFragmento.forEach((boton, indice) => boton.setAttribute('aria-pressed', String(fragmentoActual === indice)));
+    contenido.textContent = lecturas[fragmentoActual][modo];
     contenido.classList.toggle('ra-lectura-braille', modo === 'braille');
     estado.textContent = '';
   }
