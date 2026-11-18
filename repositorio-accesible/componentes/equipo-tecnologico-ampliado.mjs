@@ -2,6 +2,7 @@
 import { montarLecturaQueBonito } from './lectura-que-bonito.mjs?v=2';
 import { montarLecturaZorroLuna } from './lectura-zorro-luna.mjs?v=5';
 import { montarLecturaMuqui } from './lectura-muqui.mjs?v=1';
+import { montarLecturaRegaloRaton } from './lectura-regalo-raton.mjs?v=1';
 const contenedor = document.querySelector('#catalogo-ra:is([data-categoria="equipos_tecnologicos"],[data-categoria="materiales_disponibles"])');
 if (contenedor) {
   const dialogo = document.createElement('dialog');
@@ -32,7 +33,9 @@ if (contenedor) {
       .includes(titulo.normalize('NFC').trim().toLocaleLowerCase('es'));
   const esMuqui = titulo => contenedor.dataset.categoria === 'materiales_disponibles'
     && /^el\s+muqui\s*-\s*cuento\s*n[.º°°]?\s*11\s*$/i.test(titulo.normalize('NFC').trim());
-  const esCuentoConCopia = titulo => esCuentoAntes(titulo) || esZorroLuna(titulo) || esMuqui(titulo);
+  const esRegaloRaton = titulo => contenedor.dataset.categoria === 'materiales_disponibles'
+    && titulo.normalize('NFC').trim().toLocaleLowerCase('es') === 'el regalo de ratón';
+  const esCuentoConCopia = titulo => esCuentoAntes(titulo) || esZorroLuna(titulo) || esMuqui(titulo) || esRegaloRaton(titulo);
   function abrir(tarjeta, boton) {
     const tituloElemento = tarjeta.querySelector('.ra-catalogo-titulo');
     const titulo = tituloElemento?.dataset.tituloOriginal || tituloElemento?.textContent?.trim() || 'Recurso';
@@ -114,6 +117,8 @@ if (contenedor) {
       montarLecturaZorroLuna(detalle);
     } else if (esMuqui(titulo)) {
       montarLecturaMuqui(detalle);
+    } else if (esRegaloRaton(titulo)) {
+      montarLecturaRegaloRaton(detalle);
     }
     activador = boton;
     zoom = false;
