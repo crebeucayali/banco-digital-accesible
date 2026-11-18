@@ -25,8 +25,10 @@ if (contenedor) {
   });
   const esCuentoAntes = titulo => contenedor.dataset.categoria === 'materiales_disponibles'
     && /^antes[,]?\s+muy\s+antes\s*-\s*cuento\s*n[.º°]?\s*5\s*$/i.test(titulo.normalize('NFC').trim());
+  // El recurso 60 mantiene sus lecturas al actualizar el título de la colección.
   const esZorroLuna = titulo => contenedor.dataset.categoria === 'materiales_disponibles'
-    && titulo.normalize('NFC').trim().toLocaleLowerCase('es') === 'cuentos y tradiciones ii - el zorro enamorado de la luna';
+    && ['colección de cuentos y tradiciones ii', 'cuentos y tradiciones ii - el zorro enamorado de la luna']
+      .includes(titulo.normalize('NFC').trim().toLocaleLowerCase('es'));
   const esCuentoConCopia = titulo => esCuentoAntes(titulo) || esZorroLuna(titulo);
   function abrir(tarjeta, boton) {
     const tituloElemento = tarjeta.querySelector('.ra-catalogo-titulo');
