@@ -1,4 +1,5 @@
 // Presentación reutilizable en Equipos tecnológicos y Materiales disponibles. No modifica datos ni panel.
+import { montarLecturaQueBonito } from './lectura-que-bonito.mjs';
 const contenedor = document.querySelector('#catalogo-ra:is([data-categoria="equipos_tecnologicos"],[data-categoria="materiales_disponibles"])');
 if (contenedor) {
   const dialogo = document.createElement('dialog');
@@ -65,6 +66,9 @@ if (contenedor) {
       directo.href = enlace.href;
       directo.textContent = 'Enlace directo al material';
       detalle.append(directo);
+    }
+    if (contenedor.dataset.categoria === 'materiales_disponibles' && titulo.normalize('NFC').toLocaleLowerCase('es').trim() === '¡qué bonito!') {
+      montarLecturaQueBonito(detalle);
     }
     activador = boton;
     zoom = false;
