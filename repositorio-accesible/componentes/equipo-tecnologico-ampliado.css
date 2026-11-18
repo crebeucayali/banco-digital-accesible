@@ -8,7 +8,8 @@
 .ra-et-ver:focus-visible,.ra-et-cerrar:focus-visible,.ra-et-control-imagen:focus-visible,.ra-et-enlace:focus-visible{outline:3px solid #ce7b18;outline-offset:3px}
 .ra-et-previa{display:none}
 @media(hover:hover) and (pointer:fine) and (min-width:800px){
- #catalogo-ra:is([data-categoria="equipos_tecnologicos"],[data-categoria="materiales_disponibles"]) .ra-catalogo-tarjeta:hover .ra-et-previa{display:flex;flex-direction:column;gap:.65rem;position:fixed;z-index:1000;top:clamp(12px,8dvh,80px);right:clamp(12px,3vw,48px);width:min(620px,calc(100vw - 24px));max-height:84dvh;overflow:hidden;pointer-events:none;padding:1rem;border:2px solid #176354;border-radius:.75rem;background:#fff;color:#173941;box-shadow:0 12px 32px #0005}
+ #catalogo-ra[data-categoria="equipos_tecnologicos"] .ra-catalogo-tarjeta:hover .ra-et-previa,
+ #catalogo-ra[data-categoria="materiales_disponibles"] .ra-catalogo-tarjeta:has(.ra-catalogo-imagen:hover) .ra-et-previa{display:flex;flex-direction:column;gap:.65rem;position:fixed;z-index:1000;top:clamp(12px,8dvh,80px);right:clamp(12px,3vw,48px);width:min(620px,calc(100vw - 24px));max-height:84dvh;overflow:hidden;pointer-events:none;padding:1rem;border:2px solid #176354;border-radius:.75rem;background:#fff;color:#173941;box-shadow:0 12px 32px #0005}
  .ra-et-previa img{display:block;width:100%;height:min(440px,56dvh);max-height:none;object-fit:contain;flex:0 0 auto;background:#eef3f5;border-radius:.5rem}
  .ra-et-previa p{overflow:auto;min-height:0;white-space:pre-line}
  .ra-et-previa p{font-size:.9rem;line-height:1.5}
