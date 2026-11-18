@@ -49,9 +49,11 @@ html.eva-alto-contraste :is(.ra-et-ver,.ra-et-dialogo,.ra-et-cerrar,.ra-et-contr
  #catalogo-ra:is([data-categoria="equipos_tecnologicos"],[data-categoria="materiales_disponibles"]) .ra-catalogo-rejilla{grid-template-columns:1fr}
 }
 
-/* Copia accesible del enlace exclusivamente desde el título del cuento piloto. */
-#catalogo-ra[data-categoria="materiales_disponibles"] .ra-et-copiar-titulo{display:inline;text-align:left;font:inherit;font-weight:inherit;line-height:inherit;color:inherit;background:transparent;border:0;padding:0;cursor:copy;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:4px}
-#catalogo-ra[data-categoria="materiales_disponibles"] .ra-et-copiar-titulo:hover{text-decoration-style:solid}
-#catalogo-ra[data-categoria="materiales_disponibles"] .ra-et-copiar-titulo:focus-visible{outline:3px solid #ce7b18;outline-offset:3px;border-radius:2px}
+/* Botón compacto de enlace, equivalente al de las sesiones CAP. */
+#catalogo-ra[data-categoria="materiales_disponibles"] .ra-et-copiar-titulo{display:inline-flex;vertical-align:middle;align-items:center;justify-content:center;width:34px;height:34px;padding:5px;margin-left:4px;border:1px solid #aec5c5;border-radius:7px;background:#eef6f3;color:#176354;cursor:pointer}
+#catalogo-ra[data-categoria="materiales_disponibles"] .ra-et-copiar-titulo:hover{background:#d9eee8;border-color:#176354}
+#catalogo-ra[data-categoria="materiales_disponibles"] .ra-et-copiar-titulo:focus-visible{outline:3px solid #ce7b18;outline-offset:3px}
 #catalogo-ra[data-categoria="materiales_disponibles"] .ra-et-copia-estado:not(:empty){display:block;margin-top:.35rem;font-size:.8rem;font-weight:400;line-height:1.4;color:#176354}
+#catalogo-ra[data-categoria="materiales_disponibles"] .ra-et-copia-campo{max-width:100%;width:100%;font:inherit;border:1px solid #176354;border-radius:4px;padding:.4rem}
 html.eva-alto-contraste #catalogo-ra .ra-et-copia-estado{color:inherit!important}
+html.eva-alto-contraste #catalogo-ra .ra-et-copiar-titulo{background:#000!important;color:#fff!important;border-color:#fff!important}
