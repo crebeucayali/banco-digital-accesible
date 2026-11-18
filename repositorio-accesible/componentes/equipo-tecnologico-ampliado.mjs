@@ -67,7 +67,7 @@ if (contenedor) {
       directo.textContent = 'Enlace directo al material';
       detalle.append(directo);
     }
-    if (contenedor.dataset.categoria === 'materiales_disponibles' && titulo.normalize('NFC').toLocaleLowerCase('es').trim() === '¡qué bonito!') {
+    if (contenedor.dataset.categoria === 'materiales_disponibles' && /^antes[,]?\s+muy\s+antes\s*-\s*cuento\s*n[.º°°]?\s*5\s*$/i.test(titulo.normalize('NFC').trim())) {
       montarLecturaQueBonito(detalle);
     }
     activador = boton;
