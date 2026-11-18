@@ -1,5 +1,6 @@
 // Presentación reutilizable en Equipos tecnológicos y Materiales disponibles. No modifica datos ni panel.
 import { montarLecturaQueBonito } from './lectura-que-bonito.mjs?v=2';
+import { montarLecturaZorroLuna } from './lectura-zorro-luna.mjs?v=1';
 const contenedor = document.querySelector('#catalogo-ra:is([data-categoria="equipos_tecnologicos"],[data-categoria="materiales_disponibles"])');
 if (contenedor) {
   const dialogo = document.createElement('dialog');
@@ -105,17 +106,7 @@ if (contenedor) {
     if (esCuentoAntes(titulo)) {
       montarLecturaQueBonito(detalle);
     } else if (esZorroLuna(titulo)) {
-      const lecturaPendiente = document.createElement('section');
-      lecturaPendiente.className = 'ra-lectura-cuento';
-      lecturaPendiente.setAttribute('aria-label', 'Lectura digital de Cuentos y tradiciones II - El zorro enamorado de la luna');
-      const subtituloLectura = document.createElement('h3');
-      subtituloLectura.textContent = 'Lectura digital accesible';
-      const avisoLectura = document.createElement('p');
-      avisoLectura.className = 'ra-lectura-aviso';
-      avisoLectura.setAttribute('role', 'status');
-      avisoLectura.textContent = 'Texto convencional y braille digital pendientes de incorporación.';
-      lecturaPendiente.append(subtituloLectura, avisoLectura);
-      detalle.append(lecturaPendiente);
+      montarLecturaZorroLuna(detalle);
     }
     activador = boton;
     zoom = false;
