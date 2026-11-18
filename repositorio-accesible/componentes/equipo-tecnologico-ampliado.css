@@ -57,3 +57,12 @@ html.eva-alto-contraste :is(.ra-et-ver,.ra-et-dialogo,.ra-et-cerrar,.ra-et-contr
 #catalogo-ra[data-categoria="materiales_disponibles"] .ra-et-copia-campo{max-width:100%;width:100%;font:inherit;border:1px solid #176354;border-radius:4px;padding:.4rem}
 html.eva-alto-contraste #catalogo-ra .ra-et-copia-estado{color:inherit!important}
 html.eva-alto-contraste #catalogo-ra .ra-et-copiar-titulo{background:#000!important;color:#fff!important;border-color:#fff!important}
+
+/* El mismo control de enlace dentro de la ficha ampliada del cuento. */
+.ra-et-encabezado .ra-et-copiar-modal{display:inline-flex;vertical-align:middle;align-items:center;justify-content:center;width:34px;height:34px;margin-left:.4rem;padding:5px;border:1px solid #aec5c5;border-radius:7px;background:#eef6f3;color:#176354;cursor:pointer}
+.ra-et-encabezado .ra-et-copiar-modal:hover{background:#d9eee8;border-color:#176354}
+.ra-et-encabezado .ra-et-copiar-modal:focus-visible{outline:3px solid #ce7b18;outline-offset:3px}
+.ra-et-encabezado .ra-et-copia-modal-estado:not(:empty){display:block;margin-top:.3rem;font-size:.85rem;font-weight:400;line-height:1.4;color:#176354}
+.ra-et-encabezado .ra-et-copia-campo{display:block;max-width:100%;width:100%;font:inherit;border:1px solid #176354;border-radius:4px;padding:.4rem}
+html.eva-alto-contraste .ra-et-encabezado .ra-et-copiar-modal{background:#000!important;color:#fff!important;border-color:#fff!important}
+html.eva-alto-contraste .ra-et-encabezado .ra-et-copia-modal-estado{color:#fff!important}
