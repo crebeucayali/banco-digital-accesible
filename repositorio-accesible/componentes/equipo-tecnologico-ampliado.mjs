@@ -2,7 +2,7 @@
 import { montarLecturaQueBonito } from './lectura-que-bonito.mjs?v=2';
 import { montarLecturaZorroLuna } from './lectura-zorro-luna.mjs?v=5';
 import { montarLecturaMuqui } from './lectura-muqui.mjs?v=1';
-import { montarLecturaRegaloRaton } from './lectura-regalo-raton.mjs?v=2';
+import { montarLecturaRegaloRaton } from './lectura-regalo-raton.mjs?v=3';
 const contenedor = document.querySelector('#catalogo-ra:is([data-categoria="equipos_tecnologicos"],[data-categoria="materiales_disponibles"])');
 if (contenedor) {
   const dialogo = document.createElement('dialog');
