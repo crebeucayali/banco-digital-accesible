@@ -25,7 +25,7 @@ if (contenedor) {
   const esCuentoAntes = titulo => contenedor.dataset.categoria === 'materiales_disponibles'
     && /^antes[,]?\s+muy\s+antes\s*-\s*cuento\s*n[.º°]?\s*5\s*$/i.test(titulo.normalize('NFC').trim());
   function abrir(tarjeta, boton) {
-    const titulo = tarjeta.querySelector('.ra-catalogo-titulo')?.textContent?.trim() || 'Recurso';
+    const titulo = (tarjeta.querySelector('.ra-et-copiar-titulo') || tarjeta.querySelector('.ra-catalogo-titulo'))?.textContent?.trim() || 'Recurso';
     const descripcion = tarjeta.querySelector('.ra-catalogo-descripcion')?.textContent?.trim() || 'Descripción no disponible.';
     const foto = tarjeta.querySelector('.ra-catalogo-imagen');
     const enlace = tarjeta.querySelector('.ra-catalogo-enlace');
