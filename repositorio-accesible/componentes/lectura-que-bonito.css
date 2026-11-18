@@ -1,0 +1,18 @@
+/* Piloto del lector exclusivo de «¡Qué bonito!» en Materiales disponibles. */
+.ra-lectura-cuento{border-top:1px solid #aec5c5;margin-top:1.25rem;padding-top:1rem}
+.ra-lectura-cuento h3{margin:.25rem 0 .75rem}
+.ra-lectura-boton,.ra-lectura-modos button,.ra-lectura-navegacion button{min-height:44px;border:1px solid #176354;border-radius:.5rem;font:inherit;padding:.5rem .8rem;background:#fff;color:#173941;cursor:pointer}
+.ra-lectura-boton,.ra-lectura-modos [aria-pressed="true"]{background:#176354;color:#fff}
+.ra-lectura-modos,.ra-lectura-navegacion{display:flex;flex-wrap:wrap;gap:.5rem}
+.ra-lectura-panel{margin-top:1rem}
+.ra-lectura-panel[hidden]{display:none}
+.ra-lectura-indicador{font-weight:700;margin:1rem 0 .5rem}
+.ra-lectura-texto{white-space:pre-line;overflow-wrap:anywhere;line-height:1.75;border:1px solid #aec5c5;padding:1rem;border-radius:.6rem;background:#f4f8f8;max-height:50dvh;overflow:auto;color:#173941}
+.ra-lectura-texto.ra-lectura-braille{font-family:system-ui,sans-serif;letter-spacing:.04em;line-height:2;font-size:1.1em}
+.ra-lectura-navegacion{margin-top:.8rem}
+.ra-lectura-navegacion button:disabled{opacity:.45;cursor:not-allowed}
+.ra-lectura-aviso{font-size:.87rem;line-height:1.5;margin-top:.8rem}
+.ra-lectura-estado:not(:empty){display:block;margin-top:.5rem}
+.ra-lectura-cuento button:focus-visible,.ra-lectura-texto:focus-visible{outline:3px solid #ce7b18;outline-offset:3px}
+html.eva-alto-contraste .ra-lectura-cuento :is(button,.ra-lectura-texto){background:#000!important;color:#fff!important;border-color:#fff!important}
+@media(max-width:480px){.ra-lectura-modos button{flex:1 1 100%}.ra-lectura-texto{max-height:46dvh;padding:.75rem}}
